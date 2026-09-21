@@ -1,26 +1,441 @@
 @import "tailwindcss";
 
+/*
+  Brand typefaces — both are commercially licensed, so the files are not in
+  the repo. Drop the .woff2 files you receive from the foundry into
+  public/fonts/ using the names below and they pick up automatically.
+
+    Owners          -> mckltype.com  (primary / headings)
+    Forma DJR Deck  -> djr.com       (secondary / body copy)
+
+  Until the files are present the browser falls back to the system sans,
+  so the layout stays intact.
+*/
+@font-face {
+  font-family: "Owners";
+  src: url("/fonts/owners-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Owners";
+  src: url("/fonts/owners-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Owners";
+  src: url("/fonts/owners-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Owners";
+  src: url("/fonts/owners-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Owners";
+  src: url("/fonts/owners-black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Forma DJR Deck";
+  src: url("/fonts/forma-djr-deck-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Forma DJR Deck";
+  src: url("/fonts/forma-djr-deck-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Forma DJR Deck";
+  src: url("/fonts/forma-djr-deck-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Forma DJR Deck";
+  src: url("/fonts/forma-djr-deck-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Forma DJR Deck";
+  src: url("/fonts/forma-djr-deck-semibold-italic.woff2") format("woff2");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Forma DJR Deck";
+  src: url("/fonts/forma-djr-deck-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*
+  EWG theme tokens
+  Change the primitives below to retheme the entire site.
+  Every component reads these values through Tailwind color names
+  (bg-navy, text-lime, border-orange, etc.).
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ewg-navy: #0e3749;
+  --ewg-orange: #ff8f43;
+  --ewg-lime: #bdcc89;
+  --ewg-ice: #b3e4eb;
+  --ewg-frost: #c4dfeb;
+  --ewg-sage: #bbcac5;
+  --ewg-white: #ffffff;
+  --ewg-ink-deep: #102028;
+
+  --ewg-navy-dark: color-mix(in srgb, var(--ewg-navy) 78%, black);
+  --ewg-navy-mid: color-mix(in srgb, var(--ewg-navy) 88%, black);
+  --ewg-navy-50: color-mix(in srgb, var(--ewg-navy) 50%, white);
+  --ewg-orange-50: color-mix(in srgb, var(--ewg-orange) 50%, white);
+  --ewg-lime-light: color-mix(in srgb, var(--ewg-lime) 62%, white);
+  --ewg-lime-dark: color-mix(in srgb, var(--ewg-lime) 52%, var(--ewg-navy));
+  /* Arrow pairs are the brand colour at full strength plus the same colour at
+     50% alpha, so the soft half reads correctly over whatever sits behind it. */
+  --ewg-orange-soft: color-mix(in srgb, var(--ewg-orange) 50%, transparent);
+  --ewg-navy-soft: color-mix(in srgb, var(--ewg-navy) 50%, transparent);
+  --ewg-shade: #0e0f11;
+  --ewg-pattern-light: color-mix(in srgb, var(--ewg-navy) 32%, white);
+  --ewg-pattern-dark: color-mix(in srgb, var(--ewg-navy) 58%, white);
+  --ewg-ice-light: color-mix(in srgb, var(--ewg-ice) 58%, white);
+  --ewg-ice-dark: color-mix(in srgb, var(--ewg-ice) 72%, var(--ewg-navy));
+  --ewg-muted: color-mix(in srgb, var(--ewg-white) 72%, var(--ewg-navy));
+  --ewg-surface: color-mix(in srgb, var(--ewg-lime) 9%, white);
+  --ewg-ink: var(--ewg-navy);
+
+  --ewg-gradient-hero: linear-gradient(
+    180deg,
+    var(--ewg-navy-dark) 0%,
+    var(--ewg-navy) 32%,
+    var(--ewg-navy) 100%
+  );
+
+  /* Sits behind the "who we are" copy and the top of the product stack:
+     navy for the top 80%, then a white wash drawn in from the bottom corner
+     so the section melts into the white page below. */
+  --ewg-gradient-intro:
+    linear-gradient(
+      to top right,
+      var(--ewg-white) 0%,
+      color-mix(in srgb, var(--ewg-white) 50%, transparent) 14%,
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      var(--ewg-navy) 0%,
+      var(--ewg-navy) 80%,
+      color-mix(in srgb, var(--ewg-navy) 30%, white) 93%,
+      var(--ewg-white) 100%
+    );
+
+  /* Lime -> ice wash used for the practice headings and index numerals */
+  --ewg-gradient-brand: linear-gradient(90deg, var(--ewg-lime) 0%, var(--ewg-ice) 100%);
+
+  /* Our Edge cards: same lime → ice at 25% over white (Figma fill opacity) */
+  --ewg-gradient-edge-fill: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--ewg-lime) 25%, white) 0%,
+    color-mix(in srgb, var(--ewg-ice) 25%, white) 100%
+  );
+
+  /* Two-tone section headlines: lime fading into the surrounding ink.
+     Use the -ink pairing on white sections, -light on navy sections. */
+  --ewg-gradient-heading-ink: linear-gradient(90deg, var(--ewg-lime) 0%, var(--ewg-navy) 100%);
+  --ewg-gradient-heading-light: linear-gradient(90deg, var(--ewg-lime) 0%, var(--ewg-white) 100%);
+
+  /* Testimonial card: dark slate, lifting very slightly to the bottom right */
+  --ewg-card-dark: #12242b;
+  --ewg-card-dark-lift: #1a2c30;
+  --ewg-gradient-card-dark: linear-gradient(
+    135deg,
+    var(--ewg-card-dark) 0%,
+    var(--ewg-card-dark-lift) 100%
+  );
+
+  /* Pale ice wash in the top-left corner, clearing to white — case studies */
+  --ewg-gradient-case: linear-gradient(
+    115deg,
+    color-mix(in srgb, var(--ewg-ice) 30%, white) 0%,
+    color-mix(in srgb, var(--ewg-ice) 8%, white) 32%,
+    var(--ewg-white) 58%
+  );
+
+  /* Navy that warms into teal towards the bottom-left, behind "who we serve" */
+  --ewg-gradient-industries: linear-gradient(
+    215deg,
+    var(--ewg-navy-dark) 0%,
+    var(--ewg-navy) 48%,
+    color-mix(in srgb, var(--ewg-ice) 22%, var(--ewg-navy)) 100%
+  );
+
+  /* Timeline spine: lime in the middle, dissolving to white at both ends */
+  --ewg-gradient-timeline: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--ewg-lime) 22%,
+    var(--ewg-lime) 78%,
+    transparent 100%
+  );
+
+  --ewg-arrow-light: var(--ewg-lime-light);
+  --ewg-arrow-dark: var(--ewg-lime-dark);
+
+  --ewg-font-display: "Owners", "Helvetica Neue", Arial, sans-serif;
+  --ewg-font-text: "Forma DJR Deck", "Helvetica Neue", Arial, sans-serif;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-navy: var(--ewg-navy);
+  --color-navy-dark: var(--ewg-navy-dark);
+  --color-navy-mid: var(--ewg-navy-mid);
+  --color-navy-50: var(--ewg-navy-50);
+  --color-orange: var(--ewg-orange);
+  --color-orange-50: var(--ewg-orange-50);
+  --color-lime: var(--ewg-lime);
+  --color-lime-light: var(--ewg-lime-light);
+  --color-lime-dark: var(--ewg-lime-dark);
+  --color-orange-soft: var(--ewg-orange-soft);
+  --color-shade: var(--ewg-shade);
+  --color-pattern-light: var(--ewg-pattern-light);
+  --color-pattern-dark: var(--ewg-pattern-dark);
+  --color-ice: var(--ewg-ice);
+  --color-frost: var(--ewg-frost);
+  --color-ink-deep: var(--ewg-ink-deep);
+  --color-ice-light: var(--ewg-ice-light);
+  --color-ice-dark: var(--ewg-ice-dark);
+  --color-sage: var(--ewg-sage);
+  --color-muted: var(--ewg-muted);
+  --color-surface: var(--ewg-surface);
+  --color-ink: var(--ewg-ink);
+  --color-white: var(--ewg-white);
+  --font-sans: var(--ewg-font-text);
+  --font-headline: var(--ewg-font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7.5rem;
+}
+
+/* Note: keep html/body free of any overflow value other than `visible`.
+   Anything else turns them into the sticky viewport and breaks the pinned
+   product shuffle in Products.tsx. */
+body {
+  background: var(--ewg-navy);
+  color: var(--ewg-white);
+  font-family: var(--ewg-font-text);
+}
+
+@utility ewg-container {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1.5rem;
+
+  @variant lg {
+    padding-inline: 3rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility ewg-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--ewg-lime);
+}
+
+@utility ewg-gradient-text {
+  background-image: var(--ewg-gradient-brand);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility ewg-heading-ink {
+  background-image: var(--ewg-gradient-heading-ink);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility ewg-heading-light {
+  background-image: var(--ewg-gradient-heading-light);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 1px inside stroke uses the same lime → ice as the fill, at full strength. */
+@utility ewg-edge-card {
+  border: 1px solid transparent;
+  background:
+    var(--ewg-gradient-edge-fill) padding-box,
+    var(--ewg-gradient-brand) border-box;
+}
+
+@keyframes ewg-arrow-a {
+  0%,
+  100% {
+    fill: var(--ewg-arrow-light);
+  }
+  50% {
+    fill: var(--ewg-arrow-dark);
+  }
+}
+
+@keyframes ewg-arrow-b {
+  0%,
+  100% {
+    fill: var(--ewg-arrow-dark);
+  }
+  50% {
+    fill: var(--ewg-arrow-light);
+  }
+}
+
+@keyframes ewg-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ewg-arrow-light {
+  fill: var(--ewg-arrow-light);
+}
+
+.ewg-arrow-dark {
+  fill: var(--ewg-arrow-dark);
+}
+
+.ewg-arrow-animated .ewg-arrow-light {
+  animation: ewg-arrow-a 1.6s ease-in-out infinite;
+}
+
+.ewg-arrow-animated .ewg-arrow-dark {
+  animation: ewg-arrow-b 1.6s ease-in-out infinite;
+}
+
+.ewg-marquee-track {
+  animation: ewg-marquee 36s linear infinite;
+}
+
+@keyframes ewg-cursor-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.ewg-cursor-blink {
+  animation: ewg-cursor-blink 1.1s ease-in-out infinite;
+}
+
+/* Card photography: slow push-in while the card is hovered or focused. */
+.ewg-zoom-image {
+  transform: scale(1);
+  transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.group:hover .ewg-zoom-image,
+.group:focus-within .ewg-zoom-image {
+  transform: scale(1.09);
+}
+
+/* Stack carousel cards: left/right/transform are set per frame in Products.tsx */
+.ewg-stack-card {
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+@keyframes ewg-hint-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.ewg-hint-bob {
+  animation: ewg-hint-bob 1.6s ease-in-out infinite;
+}
+
+/* GIF arrows are authored on black. Use luminance as alpha so black drops
+   out on white pages without shifting the ice colour. */
+.ewg-gif-knock-black {
+  filter: url(#ewg-knock-black);
+}
+
+.group:hover .ewg-arrow-animated .ewg-arrow-light,
+.group:hover .ewg-arrow-animated .ewg-arrow-dark {
+  animation-duration: 0.85s;
+}
+
+.group:hover .ewg-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .ewg-arrow-animated .ewg-arrow-light,
+  .ewg-arrow-animated .ewg-arrow-dark,
+  .ewg-hint-bob,
+  .ewg-cursor-blink,
+  .ewg-marquee-track {
+    animation: none;
+    transition: none;
+  }
+
+  .ewg-zoom-image,
+  .group:hover .ewg-zoom-image,
+  .group:focus-within .ewg-zoom-image {
+    transform: none;
+    transition: none;
+  }
 }
