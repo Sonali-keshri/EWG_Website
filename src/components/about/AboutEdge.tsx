@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { EdgeCard } from "@/components/ui/EdgeCard";
 import { aboutEdge } from "@/lib/content";
 
 export function AboutEdge() {
@@ -14,24 +14,13 @@ export function AboutEdge() {
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-5">
           {aboutEdge.cards.map((card) => (
-            <article
+            <EdgeCard
               key={card.title}
-              className="ewg-edge-card flex aspect-square flex-col justify-between rounded-[1.875rem] p-8"
-            >
-              <Image
-                src={card.icon}
-                alt={card.iconAlt}
-                width={80}
-                height={80}
-                className="h-[4.5rem] w-[4.5rem] object-contain"
-              />
-              <div>
-                <h3 className="font-headline text-[1.15rem] leading-tight font-bold text-orange">
-                  {card.title}
-                </h3>
-                <p className="mt-2 text-[0.9rem] leading-6 text-navy/80">{card.body}</p>
-              </div>
-            </article>
+              title={card.title}
+              body={card.body}
+              iconSrc={card.icon}
+              iconAlt={card.iconAlt}
+            />
           ))}
         </div>
       </div>

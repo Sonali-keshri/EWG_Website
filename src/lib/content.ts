@@ -1,5 +1,5 @@
 export const navItems = [
-  { label: "Practices", href: "/#practices" },
+  { label: "Practices", href: "/practices" },
   { label: "Industries", href: "/#industries" },
   { label: "Blogs", href: "/blogs" },
   { label: "Careers", href: "/careers" },
@@ -10,7 +10,7 @@ export const hero = {
   headerLine1: "Proven where it matters.",
   headerLine2: "Building what's next",
   body: "For more than a decade, EWG has worked where systems, data and operations cannot afford to go wrong. That began in utilities, where we built deep expertise across Oracle Utilities and the meter-to-cash lifecycle. Today, we're taking that same engineering discipline into enterprise transformation, cloud, automation and intelligent systems.",
-  primaryCta: { label: "See how we work", href: "/#practices" },
+  primaryCta: { label: "See how we work", href: "/practices" },
   secondaryCta: { label: "Talk to our team", href: "/#contact" },
 };
 
@@ -170,6 +170,13 @@ export const products = {
   ],
 };
 
+export const practicesPage = {
+  eyebrow: "Services",
+  headerLine1: "One Standard.",
+  headerLine2: "Four practices.",
+  body: "EWG brings its engineering expertise together across four practices, each built around a specific set of technologies and transformation needs. Choose the practice that fits your challenge, and bring in the wider EWG team when the work calls for it.",
+};
+
 export const practices = {
   eyebrow: "One standard · Four practices",
   headerLine1: "Deep where it matters.",
@@ -178,8 +185,8 @@ export const practices = {
   cards: [
     {
       name: "EWG Utilities",
-      tagline: "Where we earned our edge",
-      body: "Oracle Utilities across CCS, C2M, MDM and the full meter-to-cash lifecycle.",
+      tagline: "The Practice we were built on",
+      body: "CC&B, C2M and MDM implementations, upgrades and migrations for utilities that can't tolerate downtime. If it's the meter-to-cash migration another partner walked away from, this is the practice that takes it on.",
     },
     {
       name: "EWG Enterprise",
@@ -195,6 +202,85 @@ export const practices = {
       name: "EWG Labs",
       tagline: "Where new capability takes shape",
       body: "Data, automation and intelligent systems, built around real delivery problems, tested in real environments, and deployed when they earn their place.",
+    },
+  ],
+};
+
+export const oracleStack = {
+  eyebrow: "What we cover",
+  headerLine1: "The Full Oracle Stack",
+  headerLine2: "We Cover",
+  cards: [
+    {
+      title: "Oracle Utilities",
+      body: "CC&B · C2M · MDM · OFS · WAM · MWM",
+      icon: "utilities",
+    },
+    {
+      title: "Oracle ERP",
+      body: "Fusion Financials · SCM · HCM · PPM · ORMB",
+      icon: "erp",
+    },
+    {
+      title: "Integration & Cloud",
+      body: "OIC · OCI · APEX · ODA",
+      icon: "cloud",
+    },
+    {
+      title: "Data & AI",
+      body: "ML forecasting · Agentic Systems · EWG Verity · Catalyst",
+      icon: "data",
+    },
+    {
+      title: "Beyond",
+      body: "SAP · AWS",
+      icon: "beyond",
+    },
+  ] as const,
+};
+
+export const howWeEngage = {
+  eyebrow: "Our story",
+  headerLine1: "How we",
+  headerLine2: "Engage",
+  project: {
+    eyebrow: "Project-based delivery",
+    headerLine1: "Fixed scope,",
+    headerLine2: "Fixed outcome",
+    body: "You know what your business needs. We design, build, test, and transition it to you. Not just the hours.",
+    points: [
+      "End-to-end ownership from design through go-live",
+      "Fixed scope, fixed timeline, fixed accountability",
+      "Built-in knowledge transfer to your team",
+    ],
+  },
+  talent: {
+    eyebrow: "Talent on demand",
+    headerLine1: "Your team,",
+    headerLine2: "Our depth",
+  },
+};
+
+export const howWeDeliver = {
+  eyebrow: "Process",
+  headerLine1: "How we",
+  headerLine2: "Deliver",
+  steps: [
+    {
+      title: "Discover",
+      body: "Understand the business and the systems that cannot fail.",
+    },
+    {
+      title: "Assess",
+      body: "Assess the risk and agree the path before delivery starts.",
+    },
+    {
+      title: "Design",
+      body: "Understand the business, assess the risk, build the right foundation before a line of code moves.",
+    },
+    {
+      title: "Deliver",
+      body: "End-to-end ownership from design through go-live, with knowledge transfer to your team.",
     },
   ],
 };
@@ -274,8 +360,7 @@ export const testimonials = {
   eyebrow: "In their words",
   headerLine1: "Trusted by the people",
   headerLine2: "who run the platforms.",
-  note: "Representative client roles. Named references available under NDA.",
-  quotes: [
+    quotes: [
     {
       quote:
         "EWG took on the parts of our C2M migration other partners wouldn't touch, and we went live on schedule.",
@@ -305,10 +390,10 @@ export const footer = {
     {
       title: "Products",
       links: [
-        { label: "EWG Utilities", href: "/#practices" },
-        { label: "EWG Enterprise", href: "/#practices" },
-        { label: "EWG Cloud & Infrastructure", href: "/#practices" },
-        { label: "EWG Labs", href: "/#practices" },
+        { label: "EWG Utilities", href: "/practices" },
+        { label: "EWG Enterprise", href: "/practices" },
+        { label: "EWG Cloud & Infrastructure", href: "/practices" },
+        { label: "EWG Labs", href: "/practices" },
       ],
     },
     {
