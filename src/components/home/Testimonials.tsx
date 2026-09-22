@@ -66,9 +66,7 @@ export function Testimonials() {
           ))}
         </div>
       </div>
-      <div className="ewg-container pb-20 lg:pb-28">
-        <p className="text-sm text-white/45">{testimonials.note}</p>
-      </div>
+    
     </section>
   );
 }
