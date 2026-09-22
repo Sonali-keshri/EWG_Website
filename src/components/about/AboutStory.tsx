@@ -1,23 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { arrowToneVars } from "@/components/brand/BrandArrow";
+import { BrandArrow } from "@/components/brand/BrandArrow";
 import { cn } from "@/lib/cn";
 import { aboutStory } from "@/lib/content";
-
-function TimelineChevron({ direction }: { direction: "up" | "down" }) {
-  return (
-    <svg
-      viewBox="0 0 28 20"
-      aria-hidden="true"
-      style={arrowToneVars.orange}
-      className={cn("ewg-arrow-animated h-5 w-7", direction === "up" ? "-rotate-90" : "rotate-90")}
-    >
-      <path className="ewg-arrow-light" d="M0 0L7.5 10L0 20H6L13.5 10L6 0Z" />
-      <path className="ewg-arrow-dark" d="M14.5 0L22 10L14.5 20H20.5L28 10L20.5 0Z" />
-    </svg>
-  );
-}
 
 const TRACK_NODES = 3;
 
@@ -63,7 +49,7 @@ export function AboutStory() {
               onClick={() => go(-1)}
               className="group relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-ink-deep disabled:opacity-40"
             >
-              <TimelineChevron direction="up" />
+              <BrandArrow size={22} tone="orange" animate className="-rotate-90" />
             </button>
 
             <div className="relative z-10 flex flex-1 flex-col items-center justify-evenly py-5">
@@ -85,7 +71,7 @@ export function AboutStory() {
               onClick={() => go(1)}
               className="group relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-ink-deep disabled:opacity-40"
             >
-              <TimelineChevron direction="down" />
+              <BrandArrow size={22} tone="orange" animate className="rotate-90" />
             </button>
           </div>
 

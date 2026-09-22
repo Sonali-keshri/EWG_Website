@@ -10,12 +10,12 @@ export function Industries() {
       className="text-white"
       style={{ backgroundImage: "var(--ewg-gradient-industries)" }}
     >
-      <div className="ewg-container py-20 lg:py-28">
+      <div className="ewg-container py-10 ">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <p className="ewg-eyebrow text-orange">{industries.eyebrow}</p>
-            <h2 className="mt-5 font-headline text-[2.1rem] leading-[1.14] font-bold tracking-tight sm:text-[2.6rem] lg:text-[3.25rem]">
-              <span className="ewg-heading-light">{industries.headerLine1}</span>
+            <h2 className="mt-5 font-headline text-[2.25rem] font-[500] leading-[1] tracking-tighter sm:text-[3rem] lg:text-[3.4rem]">
+              <span className="ewg-gradient-text">{industries.headerLine1}</span>
               <br />
               <span>{industries.headerLine2}</span>
             </h2>
@@ -29,7 +29,7 @@ export function Industries() {
         </div>
 
         {/* Two columns, with the left one dropped so the cards stagger. */}
-        <div className="mt-14 grid gap-6 lg:grid-cols-2 lg:gap-8">
+        <div className="mt-2 grid gap-6 lg:grid-cols-2 lg:gap-8">
           {[0, 1].map((column) => (
             <div key={column} className={cn("space-y-6 lg:space-y-8", column === 0 && "lg:pt-24")}>
               {industries.cards
@@ -37,7 +37,7 @@ export function Industries() {
                 .map((card) => (
                   <article
                     key={card.name}
-                    className="group overflow-hidden rounded-3xl bg-navy-dark shadow-[0_18px_40px_-24px_rgba(0,0,0,0.75)]"
+                    className="group overflow-hidden rounded-3xl bg-black/50 shadow-[0_18px_40px_-24px_rgba(0,0,0,0.75)]"
                   >
                     <div className="relative aspect-video overflow-hidden">
                       <Image

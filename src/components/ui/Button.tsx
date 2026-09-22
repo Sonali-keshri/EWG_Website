@@ -43,7 +43,7 @@ export function Button({
       }}
       onBlur={() => setHovered(false)}
       className={cn(
-        "group inline-flex h-12 items-center justify-center gap-2.5 rounded-full border px-6 text-[0.95rem] font-medium tracking-tight transition-colors duration-300",
+        "group inline-flex h-10 items-center justify-center gap-2.5 rounded-full border px-6 text-[0.95rem] font-medium tracking-tight transition-colors duration-300",
         isActive
           ? "border-lime bg-lime text-navy"
           : variant === "light"
@@ -55,7 +55,7 @@ export function Button({
       <span>{children}</span>
       {showArrow ? (
         <BrandArrow
-          size={16}
+          size={20}
           tone={isActive ? "navy" : "orange"}
           animate
           className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5"

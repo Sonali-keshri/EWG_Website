@@ -6,22 +6,25 @@ export function WhoWeAre() {
     <section id="who-we-are" className="relative text-white">
       <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <p className="ewg-eyebrow">{whoWeAre.eyebrow}</p>
-          <h2 className="mt-4 font-headline text-[2.4rem] font-semibold leading-[1.12] tracking-tight text-lime sm:text-5xl lg:text-[3.35rem]">
-            {whoWeAre.headerLine1}
+          <p className="ewg-eyebrow ewg-eyebrow-loose">{whoWeAre.eyebrow}</p>
+          <h2 className="mt-5 font-headline text-[2.25rem] font-[900px] leading-[1] tracking-tighter sm:text-[3rem] lg:text-[3.2rem]">
+            <span className="ewg-gradient-text">{whoWeAre.headerLine1}</span>
+
             <br />
             {whoWeAre.headerLine2}
           </h2>
         </div>
         <div className="max-w-xl lg:pt-6">
-          <p className="text-[1.02rem] leading-8 text-white/85">
+          <p className="text-[1rem]  text-white/85 font-[600px] leading-[24px] pb-10 tracking-normal ">
             {whoWeAre.body[0]}
-            <br />
+          </p>
+          <p className="text-[1rem]  text-white/85 font-[600px] leading-[24px] tracking-normal ">
+
             {whoWeAre.body[1]}
             <br />
             {whoWeAre.body[2]}
           </p>
-          <Button href={whoWeAre.cta.href} className="mt-10">
+          <Button href={whoWeAre.cta.href} className="mt-14">
             {whoWeAre.cta.label}
           </Button>
         </div>

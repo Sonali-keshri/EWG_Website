@@ -9,7 +9,7 @@ export function PracticeList() {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="space-y-3">
+    <div className="flex flex-col gap-3 pb-10">
       {practices.cards.map((card, index) => {
         const isActive = index === active;
 
@@ -34,12 +34,14 @@ export function PracticeList() {
                   aria-expanded={isActive}
                   onFocus={() => setActive(index)}
                   onClick={() => setActive(index)}
-                  className="flex w-full items-center justify-between gap-6 px-7 py-6 text-left lg:px-12 lg:py-7"
+                  className="ewg-card-inset flex w-full items-center justify-between gap-6 py-5 text-left lg:py-6"
                 >
-                  <h3 className="font-headline text-xl font-bold lg:text-[1.55rem]">{card.name}</h3>
+                  <h3 className="font-headline text-[1.35rem] leading-none font-bold tracking-tight lg:text-[1.65rem]">
+                    {card.name}
+                  </h3>
                   <span
                     aria-hidden="true"
-                    className="ewg-gradient-text font-headline text-[2.5rem] leading-none font-black lg:text-[3.25rem]"
+                    className="ewg-gradient-text font-headline text-[2.75rem] leading-none font-black tracking-tighter lg:text-[4rem]"
                   >
                     {index + 1}
                   </span>
@@ -54,15 +56,17 @@ export function PracticeList() {
               )}
             >
               <div className="overflow-hidden">
-                <div className="group grid gap-6 px-7 py-8 lg:grid-cols-[minmax(0,1fr)_20rem_auto] lg:items-center lg:gap-10 lg:px-12 lg:py-10">
-                  <h3 className="ewg-gradient-text font-headline text-[2rem] leading-[0.9] font-black tracking-tight uppercase sm:text-[2.75rem] lg:text-[3.4rem]">
+                <div className="ewg-card-inset grid items-center gap-8 py-8 sm:grid-cols-[minmax(0,1.15fr)_minmax(16rem,22rem)] lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,24rem)_auto] lg:gap-x-14 lg:py-11">
+                  <h3 className="ewg-gradient-text font-headline text-[1.85rem] leading-[0.95] font-black tracking-tight uppercase sm:text-[2.15rem] lg:text-[2.55rem]">
                     {card.name}
                   </h3>
-                  <div>
-                    <p className="font-headline text-base font-bold text-white">{card.tagline}</p>
-                    <p className="mt-2 text-sm leading-6 text-white/75">{card.body}</p>
+                  <div className="max-w-[46ch]">
+                    <p className="font-headline text-[1.05rem] leading-snug font-bold text-white">
+                      {card.tagline}
+                    </p>
+                    <p className="mt-3 text-[0.95rem] leading-6 text-white/80">{card.body}</p>
                   </div>
-                  <BrandArrow size={92} tone="ice" animate className="hidden lg:block" />
+                  <BrandArrow size={80} tone="ice" animate className="hidden justify-self-end lg:block" />
                 </div>
               </div>
             </div>

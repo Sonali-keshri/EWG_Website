@@ -2,7 +2,17 @@ import Image from "next/image";
 
 export function ArrowField() {
   return (
-    <div className="pointer-events-none relative mx-auto w-full max-w-[22rem] lg:ml-auto lg:max-w-[24rem]" aria-hidden="true">
+    <div
+      className="pointer-events-none relative mx-auto w-full max-w-[24rem] lg:ml-auto lg:max-w-[28rem]"
+      aria-hidden="true"
+    >
+      <Image
+        src="/EWG_Arrows.png"
+        alt=""
+        width={622}
+        height={608}
+        className="absolute inset-0 h-full w-full object-contain mix-blend-screen"
+      />
       {/* `unoptimized` is required: the image optimizer flattens animated GIFs
           to a single still frame. `preload` replaces the deprecated `priority`. */}
       <Image
@@ -12,7 +22,7 @@ export function ArrowField() {
         height={608}
         unoptimized
         preload
-        className="h-auto w-full object-contain mix-blend-screen"
+        className="relative h-auto w-full object-contain mix-blend-screen"
       />
     </div>
   );

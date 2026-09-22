@@ -7,12 +7,11 @@ import { useRef } from "react";
 import type { PointerEvent, MouseEvent } from "react";
 import { ArrowCursor } from "@/components/ui/ArrowCursor";
 import { Button } from "@/components/ui/Button";
-import { alignToContainer } from "@/lib/carousel";
 import { caseStudies } from "@/lib/content";
 
 export function CaseStudies() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: alignToContainer, duration: 32 },
+    { loop: true, align: "start", duration: 32 },
     [Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true })],
   );
   const pressOrigin = useRef({ x: 0, y: 0 });
@@ -40,9 +39,12 @@ export function CaseStudies() {
           <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="ewg-eyebrow text-orange">{caseStudies.eyebrow}</p>
-              <h2 className="mt-4 font-headline text-[2.1rem] leading-[1.14] font-bold tracking-tight sm:text-[2.6rem] lg:text-[3rem]">
-                <span className="ewg-heading-ink">{caseStudies.headerLead}</span>{" "}
-                <span>{caseStudies.headerRest}</span>
+              <h2
+                id="case-studies-heading"
+                className="mt-4 font-headline text-[2.1rem] leading-[1.14] font-semibold tracking-tight sm:text-[2.6rem] lg:text-[3rem]"
+              >
+                <span className="ewg-gradient-text-dark">{caseStudies.headerLead} {caseStudies.headerRest}</span>{" "}
+              
               </h2>
             </div>
             <Button href={caseStudies.cta.href} variant="light" className="shrink-0">
@@ -51,18 +53,29 @@ export function CaseStudies() {
           </div>
         </div>
 
-        <div className="mt-12 overflow-hidden pb-20 lg:mt-14 lg:pb-28" ref={emblaRef}>
-          {/* Gaps live as slide padding rather than `gap`, otherwise the
-              loop drops the space between the last and first slide. */}
+        {/* Viewport starts on the "Featured Works" line and bleeds right.
+            Slide padding is only the gap; the negative track margin cancels
+            it so the photo, not the padding, sits on that line. */}
+        <div
+          id="case-studies-carousel"
+          className="mt-12 overflow-hidden pb-20 lg:mt-14 lg:pb-28"
+          style={{
+            marginLeft: "var(--ewg-content-start)",
+            width: "calc(100% - var(--ewg-content-start))",
+          }}
+          ref={emblaRef}
+        >
           <div
-            className="-ml-6 flex touch-pan-y lg:-ml-8"
+            className="flex touch-pan-y"
+            style={{ marginLeft: "calc(var(--ewg-slide-gap) * -1)" }}
             onPointerDown={handlePointerDown}
             onClick={handleClick}
           >
             {caseStudies.items.map((item, index) => (
               <article
                 key={`${item.title}-${index}`}
-                className="group min-w-0 shrink-0 grow-0 basis-[88%] pl-6 sm:basis-[66%] lg:basis-[56%] lg:pl-8"
+                className="group min-w-0 shrink-0 grow-0 basis-[88vw] sm:basis-[66vw] lg:basis-[56vw]"
+                style={{ paddingLeft: "var(--ewg-slide-gap)" }}
               >
                 <div className="relative aspect-video overflow-hidden rounded-3xl lg:aspect-2/1">
                   <Image
@@ -74,11 +87,13 @@ export function CaseStudies() {
                     className="ewg-zoom-image object-cover"
                   />
                 </div>
-                <h3 className="mt-7 max-w-lg font-headline text-2xl leading-snug font-bold lg:text-[1.75rem]">
-                  {item.title}
-                </h3>
-                <p className="mt-4 max-w-xl leading-7 text-navy/70">{item.body}</p>
-                <p className="mt-5 text-sm font-bold italic">{item.metrics}</p>
+                <div className="mt-7 max-w-xl pl-8 lg:pl-12">
+                  <h3 className="font-headline text-2xl leading-snug font-bold lg:text-[1.75rem]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 leading-7 text-navy/70">{item.body}</p>
+                  <p className="mt-5 text-sm font-bold italic">{item.metrics}</p>
+                </div>
               </article>
             ))}
           </div>

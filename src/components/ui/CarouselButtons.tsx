@@ -1,25 +1,5 @@
-import { arrowToneVars, type ArrowTone } from "@/components/brand/BrandArrow";
+import { BrandArrow, type ArrowTone } from "@/components/brand/BrandArrow";
 import { cn } from "@/lib/cn";
-
-function DoubleChevron({ direction, tone }: { direction: "prev" | "next"; tone: ArrowTone }) {
-  return (
-    <svg
-      viewBox="0 0 28 20"
-      aria-hidden="true"
-      style={arrowToneVars[tone]}
-      className={cn("ewg-arrow-animated h-5 w-7", direction === "prev" && "rotate-180")}
-    >
-      <path
-        className={direction === "prev" ? "ewg-arrow-dark" : "ewg-arrow-light"}
-        d="M0 0L7.5 10L0 20H6L13.5 10L6 0Z"
-      />
-      <path
-        className={direction === "prev" ? "ewg-arrow-light" : "ewg-arrow-dark"}
-        d="M14.5 0L22 10L14.5 20H20.5L28 10L20.5 0Z"
-      />
-    </svg>
-  );
-}
 
 type Surface = "light" | "dark" | "ink";
 
@@ -55,12 +35,17 @@ export function CarouselButton({
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        "group flex h-14 w-14 shrink-0 items-center justify-center rounded-full transition-colors disabled:opacity-40 lg:h-16 lg:w-16",
+        "group flex h-24 w-24 shrink-0 items-center justify-center rounded-full transition-colors disabled:opacity-40 lg:h-16 lg:w-16",
         surfaceClass[surface],
         className,
       )}
     >
-      <DoubleChevron direction={direction} tone={tone} />
+      <BrandArrow
+        size={28}
+        tone={tone}
+        animate
+        className={cn("transition-transform duration-300", direction === "prev" && "-rotate-135",  direction === "next" && "rotate-45")}
+      />
     </button>
   );
 }

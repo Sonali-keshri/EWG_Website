@@ -79,14 +79,12 @@ export function SiteHeader() {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={cn(
-        "fixed top-0 right-0 left-0 z-300 p-4 text-white transition-transform duration-500 ease-out lg:p-6",
+        "fixed top-0 right-0 left-0 z-300 py-4 px-16 text-white transition-transform duration-500 ease-out",
         hidden && !open && !hovered ? "-translate-y-[calc(100%+1.5rem)]" : "translate-y-0",
       )}
     >
-      {/* Inset floating bar: black at 75% (page reads through at ~25%).
-          The Figma bar is a dark overlay, not a wash. */}
       <div className="bg-black/55 backdrop-blur-md">
-        <div className="ewg-container flex h-16 items-center justify-between gap-6 lg:h-[4.25rem]">
+        <div className="ewg-nav-inner flex h-16 items-center justify-between gap-6 lg:h-[4.25rem]">
           <Logo />
           <nav className="hidden items-center gap-8 lg:flex">
             {navItems.map((item) => (
@@ -116,13 +114,13 @@ export function SiteHeader() {
         </div>
         {open ? (
           <div className="border-t border-white/10 bg-shade/80 lg:hidden">
-            <nav className="ewg-container flex flex-col gap-1 py-4">
+            <nav className="ewg-nav-inner flex flex-col gap-1 py-4">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-3 py-3 text-base text-white/90 hover:bg-white/5 hover:text-lime"
+                  className="rounded-xl py-3 text-base text-white/90 hover:bg-white/5 hover:text-lime"
                 >
                   {item.label}
                 </Link>

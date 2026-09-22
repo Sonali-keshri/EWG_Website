@@ -181,7 +181,7 @@ export const practices = {
   eyebrow: "One standard · Four practices",
   headerLine1: "Deep where it matters.",
   headerLine2: "Broad where it counts.",
-  body: ["One EWG. Multiple capabilities.", "The same standard across every system we touch."],
+ 
   cards: [
     {
       name: "EWG Utilities",
@@ -399,7 +399,7 @@ export const footer = {
     {
       title: "Industries",
       links: [
-        { label: "Utilities", href: "/#industries" },
+        { label: "Electricity, Water & Gas", href: "/#industries" },
         { label: "Financial Services", href: "/#industries" },
         { label: "Healthcare & Public Sector", href: "/#industries" },
         { label: "Manufacturing & Services", href: "/#industries" },
@@ -422,9 +422,10 @@ export const footer = {
     },
   ],
   social: [
-    { label: "Facebook", href: "https://facebook.com", icon: "facebook" },
-    { label: "X", href: "https://x.com", icon: "x" },
-    { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
-    { label: "Instagram", href: "https://instagram.com", icon: "instagram" },
+    { label: "Facebook", href: "https://facebook.com", src: "/facebook.png" },
+    { label: "X", href: "https://x.com", src: "/twitter.png" },
+    { label: "LinkedIn", href: "https://linkedin.com", src: "/linkedin.png" },
+    { label: "Instagram", href: "https://instagram.com", src: "/insta.png" },
   ],
+  copyright: "COPYRIGHTS © 2026 EWG | ALL RIGHTS RESERVED",
 } as const;

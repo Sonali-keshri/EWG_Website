@@ -9,19 +9,31 @@ export function ContactCta() {
   const [active, setActive] = useState<"primary" | "secondary">("primary");
 
   return (
-    <section id="contact" className="overflow-hidden bg-white text-navy">
+    <section id="contact" className="overflow-x-clip bg-white text-navy">
       <div className="ewg-container grid items-center gap-12 py-20 lg:grid-cols-2 lg:gap-16 lg:py-28">
-        {/* Black in the GIF is treated as transparent via an SVG luminance
-            filter, so the ice arrows keep their authored colour on white. */}
-        <Image
-          src="/images/EWG_Arrows.gif"
-          alt=""
-          width={622}
-          height={608}
-          unoptimized
+        {/* Still PNG and GIF share one box so the animation lights and
+            darkens the same arrow positions, matching the Figma field. */}
+        <div
+          className="pointer-events-none relative mx-auto aspect-[622/608] w-full max-w-[24rem] lg:max-w-[28rem]"
           aria-hidden="true"
-          className="ewg-gif-knock-black mx-auto h-auto w-full max-w-[16rem] lg:max-w-[18rem]"
-        />
+        >
+          <Image
+            src="/EWG_Arrows.png"
+            alt=""
+            fill
+            unoptimized
+            sizes="(min-width: 1024px) 28rem, 24rem"
+            className="ewg-gif-knock-black object-contain opacity-70"
+          />
+          <Image
+            src="/images/EWG_Arrows.gif"
+            alt=""
+            fill
+            unoptimized
+            sizes="(min-width: 1024px) 28rem, 24rem"
+            className="ewg-gif-knock-black object-contain"
+          />
+        </div>
         <div>
           <p className="ewg-eyebrow text-orange">{contactCta.eyebrow}</p>
           <h2 className="mt-4 font-headline text-[2.1rem] leading-[1.14] font-bold tracking-tight sm:text-[2.5rem] lg:text-[2.85rem]">

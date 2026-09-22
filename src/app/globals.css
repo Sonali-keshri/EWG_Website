@@ -126,6 +126,7 @@
   --ewg-orange-soft: color-mix(in srgb, var(--ewg-orange) 50%, transparent);
   --ewg-navy-soft: color-mix(in srgb, var(--ewg-navy) 50%, transparent);
   --ewg-shade: #0e0f11;
+  --ewg-charcoal: #1a1a1a;
   --ewg-pattern-light: color-mix(in srgb, var(--ewg-navy) 32%, white);
   --ewg-pattern-dark: color-mix(in srgb, var(--ewg-navy) 58%, white);
   --ewg-ice-light: color-mix(in srgb, var(--ewg-ice) 58%, white);
@@ -159,8 +160,31 @@
       var(--ewg-white) 100%
     );
 
+  /* Figma fill on the dark bands: solid navy, then a linear wash at 20%
+     opacity. Charcoal (#1A1A1A) holds from the top-left through 23%, then
+     runs to lime (#BDCC89) at the bottom-right. */
+  --ewg-gradient-navy-wash:
+    linear-gradient(
+      to bottom right,
+      color-mix(in srgb, var(--ewg-charcoal) 20%, transparent) 23%,
+      color-mix(in srgb, var(--ewg-lime) 20%, transparent) 100%
+    ),
+    linear-gradient(var(--ewg-navy), var(--ewg-navy));
+
+  /* Story and the product stack share that wash, then the bottom 30% fades
+     to white so the band meets the section underneath. */
+  --ewg-gradient-story:
+    linear-gradient(180deg, transparent 0%, transparent 70%, var(--ewg-white) 100%),
+    linear-gradient(
+      to bottom right,
+      color-mix(in srgb, var(--ewg-charcoal) 20%, transparent) 23%,
+      color-mix(in srgb, var(--ewg-lime) 20%, transparent) 100%
+    ),
+    linear-gradient(var(--ewg-navy), var(--ewg-navy));
+
   /* Lime -> ice wash used for the practice headings and index numerals */
   --ewg-gradient-brand: linear-gradient(90deg, var(--ewg-lime) 0%, var(--ewg-ice) 100%);
+  --ewg-gradient-brand-dark: linear-gradient(90deg, var(--ewg-lime) 0%, var(--ewg-navy) 100%);
 
   /* Our Edge cards: same lime → ice at 25% over white (Figma fill opacity) */
   --ewg-gradient-edge-fill: linear-gradient(
@@ -174,14 +198,16 @@
   --ewg-gradient-heading-ink: linear-gradient(90deg, var(--ewg-lime) 0%, var(--ewg-navy) 100%);
   --ewg-gradient-heading-light: linear-gradient(90deg, var(--ewg-lime) 0%, var(--ewg-white) 100%);
 
-  /* Testimonial card: dark slate, lifting very slightly to the bottom right */
-  --ewg-card-dark: #12242b;
-  --ewg-card-dark-lift: #1a2c30;
-  --ewg-gradient-card-dark: linear-gradient(
-    135deg,
-    var(--ewg-card-dark) 0%,
-    var(--ewg-card-dark-lift) 100%
-  );
+  /* Testimonial card: #0E0F11 at 50%, then #FF8F43 from the
+     bottom-right corner fading toward the top. Both layers are
+     gradients so background-image can paint them. */
+  --ewg-gradient-card-dark:
+    linear-gradient(
+      to top left,
+      color-mix(in srgb, #ff8e4346 42%, transparent) 0%,
+      transparent 64%
+    ),
+    linear-gradient(#0e0f1180, #0e0f1180);
 
   /* Pale ice wash in the top-left corner, clearing to white — case studies */
   --ewg-gradient-case: linear-gradient(
@@ -191,13 +217,8 @@
     var(--ewg-white) 58%
   );
 
-  /* Navy that warms into teal towards the bottom-left, behind "who we serve" */
-  --ewg-gradient-industries: linear-gradient(
-    215deg,
-    var(--ewg-navy-dark) 0%,
-    var(--ewg-navy) 48%,
-    color-mix(in srgb, var(--ewg-ice) 22%, var(--ewg-navy)) 100%
-  );
+  /* Industries and testimonials: same navy + charcoal wash as the story band. */
+  --ewg-gradient-industries: var(--ewg-gradient-navy-wash);
 
   /* Timeline spine: lime in the middle, dissolving to white at both ends */
   --ewg-gradient-timeline: linear-gradient(
@@ -210,6 +231,17 @@
 
   --ewg-arrow-light: var(--ewg-lime-light);
   --ewg-arrow-dark: var(--ewg-lime-dark);
+
+  /* Header is px-16; page copy uses these so it starts on the logo line. */
+  --ewg-nav-inset: 4rem;
+  --ewg-gutter: 1.5rem;
+  --ewg-max: 80rem;
+  /* Left edge of ewg-container copy: centering offset plus that padding. */
+  --ewg-content-start: max(
+    calc(var(--ewg-nav-inset) + var(--ewg-gutter)),
+    calc((100vw - var(--ewg-max)) / 2 + var(--ewg-gutter))
+  );
+  --ewg-slide-gap: 1.5rem;
 
   --ewg-font-display: "Owners", "Helvetica Neue", Arial, sans-serif;
   --ewg-font-text: "Forma DJR Deck", "Helvetica Neue", Arial, sans-serif;
@@ -257,15 +289,47 @@ body {
   font-family: var(--ewg-font-text);
 }
 
+@media (width >= 64rem) {
+  :root {
+    --ewg-gutter: 3rem;
+    --ewg-slide-gap: 2rem;
+  }
+}
+
+@utility ewg-nav-inner {
+  margin-inline: auto;
+  width: 100%;
+  max-width: var(--ewg-max);
+  padding-inline: var(--ewg-gutter);
+}
+
 @utility ewg-container {
   margin-inline: auto;
   width: 100%;
-  max-width: 80rem;
-  padding-inline: 1.5rem;
+  max-width: var(--ewg-max);
+  padding-inline: max(
+    var(--ewg-gutter),
+    calc(
+      var(--ewg-nav-inset) + var(--ewg-gutter) -
+        max(0px, calc((100vw - var(--ewg-max)) / 2))
+    )
+  );
+}
 
-  @variant lg {
-    padding-inline: 3rem;
-  }
+/* Card shells bleed out to the header bar's edges, so a card and the navbar
+   share a left and right edge at every width. */
+@utility ewg-card-frame {
+  width: 100%;
+  padding-inline: var(--ewg-nav-inset);
+}
+
+/* Inside a card frame, this puts the copy back on the logo line — the same
+   column ewg-container hands the rest of the page. */
+@utility ewg-card-inset {
+  padding-inline: max(
+    var(--ewg-gutter),
+    calc(var(--ewg-gutter) + (100vw - var(--ewg-max)) / 2 - var(--ewg-nav-inset))
+  );
 }
 
 @utility ewg-eyebrow {
@@ -277,6 +341,13 @@ body {
   color: var(--ewg-lime);
 }
 
+/* Unlayered, so it beats the ewg-eyebrow utility without needing `!` flags. */
+.ewg-eyebrow-loose {
+  letter-spacing: 0.3em;
+  line-height: 1.5;
+  color: var(--ewg-orange);
+}
+
 @utility ewg-gradient-text {
   background-image: var(--ewg-gradient-brand);
   background-clip: text;
@@ -285,6 +356,13 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+@utility ewg-gradient-text-dark {
+  background-image: var(--ewg-gradient-brand-dark);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
 @utility ewg-heading-ink {
   background-image: var(--ewg-gradient-heading-ink);
   background-clip: text;
@@ -309,23 +387,31 @@ body {
     var(--ewg-gradient-brand) border-box;
 }
 
+.ewg-arrow-mark {
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  -webkit-mask: url("/Vector-arrow.png") center / contain no-repeat;
+  mask: url("/Vector-arrow.png") center / contain no-repeat;
+}
+
 @keyframes ewg-arrow-a {
   0%,
   100% {
-    fill: var(--ewg-arrow-light);
+    background-color: var(--ewg-arrow-light);
   }
   50% {
-    fill: var(--ewg-arrow-dark);
+    background-color: var(--ewg-arrow-dark);
   }
 }
 
 @keyframes ewg-arrow-b {
   0%,
   100% {
-    fill: var(--ewg-arrow-dark);
+    background-color: var(--ewg-arrow-dark);
   }
   50% {
-    fill: var(--ewg-arrow-light);
+    background-color: var(--ewg-arrow-light);
   }
 }
 
@@ -339,11 +425,11 @@ body {
 }
 
 .ewg-arrow-light {
-  fill: var(--ewg-arrow-light);
+  background-color: var(--ewg-arrow-light);
 }
 
 .ewg-arrow-dark {
-  fill: var(--ewg-arrow-dark);
+  background-color: var(--ewg-arrow-dark);
 }
 
 .ewg-arrow-animated .ewg-arrow-light {

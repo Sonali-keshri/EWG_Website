@@ -9,24 +9,18 @@ type PracticesProps = {
 export function Practices({ id = "practices", showBody = true }: PracticesProps) {
   return (
     <section id={id} className="bg-white text-navy">
-      <div className="ewg-container py-20 lg:py-28">
+      <div className="ewg-container pt-20 lg:pt-28">
         <p className="ewg-eyebrow text-orange">{practices.eyebrow}</p>
-        <h2 className="mt-5 font-headline text-[2.1rem] leading-[1.14] font-bold tracking-tight sm:text-[2.6rem] lg:text-[3.25rem]">
+        <h2 className="mt-5 font-headline text-[2.25rem] font-[900px] leading-[1] tracking-tighter sm:text-[3rem] lg:text-[3.8rem]">
           <span className="ewg-heading-ink">{practices.headerLine1}</span>
           <br />
           <span>{practices.headerLine2}</span>
         </h2>
-        {showBody ? (
-          <div className="mt-5 max-w-xl text-[1.02rem] leading-8 text-navy/70">
-            {practices.body.map((line) => (
-              <p key={line}>{line}</p>
-            ))}
-          </div>
-        ) : null}
+      </div>
 
-        <div className="mt-12 lg:mt-16">
-          <PracticeList />
-        </div>
+      {/* Cards share the navbar bar's edges. Copy inside sits on the logo line. */}
+      <div className="ewg-card-frame mt-12 pb-20 lg:mt-16 lg:pb-28">
+        <PracticeList />
       </div>
     </section>
   );

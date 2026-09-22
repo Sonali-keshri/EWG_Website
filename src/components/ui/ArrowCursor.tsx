@@ -42,11 +42,11 @@ export function ArrowCursor({ children, className }: ArrowCursorProps) {
       >
         <span
           className={cn(
-            "flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-navy shadow-[0_12px_36px_-14px_rgba(0,0,0,0.65)] transition-opacity duration-200",
+            "flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-navy shadow-[0_12px_36px_-14px_rgba(0,0,0,0.65)] transition-opacity duration-200",
             visible ? "opacity-100" : "opacity-0",
           )}
         >
-          <BrandArrow size={54} tone="ice" animate className="ewg-cursor-blink" />
+          <BrandArrow size={66} tone="ice" animate className="ewg-cursor-blink" />
         </span>
       </div>
     </div>

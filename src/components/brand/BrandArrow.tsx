@@ -10,7 +10,7 @@ type BrandArrowProps = {
   className?: string;
 };
 
-/** Drop these on any SVG to drive the shared dual-tone arrow classes. */
+/** Drop these on any host to drive the shared dual-tone arrow classes. */
 export const arrowToneVars: Record<ArrowTone, CSSProperties & Record<string, string>> = {
   lime: {
     "--ewg-arrow-light": "var(--ewg-lime-light)",
@@ -35,22 +35,28 @@ export const arrowToneVars: Record<ArrowTone, CSSProperties & Record<string, str
 };
 
 export function BrandArrow({
-  size = 20,
+  size = 18,
   tone = "lime",
   animate = false,
   className,
 }: BrandArrowProps) {
+  // Marks sit on opposite corners; anything under half the box leaves a diagonal gap.
+  const piece = Math.round(size * 0.70);
+
   return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 64 64"
-      className={cn("shrink-0 transition-transform duration-300", animate && "ewg-arrow-animated", className)}
-      style={arrowToneVars[tone]}
+    <span
       aria-hidden="true"
+      className={cn("relative inline-block shrink-0", animate && "ewg-arrow-animated", className)}
+      style={{ width: size, height: size, ...arrowToneVars[tone] }}
     >
-      <path className="ewg-arrow-dark" d="M22 6h32v32H44V16H22V6Z" />
-      <path className="ewg-arrow-light" d="M10 18h32v32H32V28H10V18Z" />
-    </svg>
+      <span
+        className="ewg-arrow-mark ewg-arrow-dark"
+        style={{ width: piece, height: piece, top: 0, right: 0 }}
+      />
+      <span
+        className="ewg-arrow-mark ewg-arrow-light"
+        style={{ width: piece, height: piece, bottom: 0, left: 0 }}
+      />
+    </span>
   );
 }

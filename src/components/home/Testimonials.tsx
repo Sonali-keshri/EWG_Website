@@ -2,34 +2,40 @@
 
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
+import Image from "next/image";
 import { CarouselButtons } from "@/components/ui/CarouselButtons";
-import { alignToContainer } from "@/lib/carousel";
 import { testimonials } from "@/lib/content";
 
 export function Testimonials() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: alignToContainer, duration: 32 },
+    { loop: true, align: "start", duration: 32 },
     [Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })],
   );
+  // Two quotes repeated so the loop can show the next card peeking in.
+  const slides = [...testimonials.quotes, ...testimonials.quotes];
 
   return (
     <section
       id="testimonials"
-      className="text-white"
+      className="overflow-x-clip pb-20 text-white lg:pb-28"
       style={{ backgroundImage: "var(--ewg-gradient-industries)" }}
     >
-      <div className="ewg-container pt-20 lg:pt-28">
-        <div className="flex items-start justify-between gap-8">
+      <div className="ewg-container pt-16 lg:pt-24">
+        <div className="flex items-center justify-between gap-8">
           <div>
             <p className="ewg-eyebrow text-orange">{testimonials.eyebrow}</p>
-            <h2 className="mt-5 font-headline text-[2.1rem] leading-[1.14] font-bold tracking-tight sm:text-[2.6rem] lg:text-[3rem]">
+            <h2
+              id="testimonials-heading"
+              className="mt-5 font-headline text-[2.1rem] leading-[1.08] font-[500] tracking-tight sm:text-[2.6rem] lg:text-[3.5rem]"
+            >
               <span className="ewg-heading-light">{testimonials.headerLine1}</span>
               <br />
               <span>{testimonials.headerLine2}</span>
             </h2>
           </div>
           <CarouselButtons
-            className="pt-6"
+            surface="ink"
+            className="pt-2"
             onPrev={() => emblaApi?.scrollPrev()}
             onNext={() => emblaApi?.scrollNext()}
             prevLabel="Previous testimonial"
@@ -38,35 +44,49 @@ export function Testimonials() {
         </div>
       </div>
 
-      <div className="mt-12 mx-20 overflow-hidden lg:mt-16" ref={emblaRef}>
-        {/* Gaps live as slide padding rather than `gap`, otherwise the loop
-            drops the space between the last and first slide. */}
-        <div className="-ml-6 flex touch-pan-y lg:-ml-8">
-          {testimonials.quotes.map((item) => (
+      <div
+        id="testimonials-carousel"
+        className="mt-12 overflow-hidden lg:mt-14"
+        style={{
+          marginLeft: "var(--ewg-content-start)",
+          width: "calc(100% - var(--ewg-content-start))",
+        }}
+        ref={emblaRef}
+      >
+        <div className="flex touch-pan-y" style={{ marginLeft: "calc(var(--ewg-slide-gap) * -1)" }}>
+          {slides.map((item, index) => (
             <div
-              key={item.quote}
-              className="min-w-0 shrink-0 grow-0 basis-[86%] pl-6 sm:basis-[52%] lg:basis-[40%] lg:pl-8"
+              key={`${item.role}-${index}`}
+              className="flex min-w-0 shrink-0 grow-0 basis-[86%] sm:basis-[58%] lg:basis-[42%]"
+              style={{ paddingLeft: "var(--ewg-slide-gap)" }}
             >
               <article
-                className="flex h-full flex-col rounded-3xl p-7 lg:p-9"
+                className="flex aspect-[784/458] w-full flex-col rounded-[50px] px-8 py-7 sm:px-10 sm:py-8 lg:px-12 lg:py-10"
                 style={{ backgroundImage: "var(--ewg-gradient-card-dark)" }}
               >
-                <p className="ewg-gradient-text w-fit font-headline text-[3.75rem] leading-none font-bold select-none lg:text-[4.5rem]">
-                  “
-                </p>
-                <p className="mt-3 text-[0.95rem] leading-[1.7] text-white">{item.quote}</p>
-                <div className="mt-auto pt-8">
-                  <p className="font-headline text-sm font-bold text-orange lg:text-lg">
-                    {`${item.role},`}
+                <Image
+                  src="/images/quoteIcon.png"
+                  alt=""
+                  width={60}
+                  height={64}
+                 
+                />
+                <div className="mt-5 flex min-h-0 flex-1 flex-col pl-8 lg:mt-6 lg:pl-12">
+                  <p className="max-w-[34rem] text-[0.95rem] leading-[1.55] text-white lg:text-base">
+                    {item.quote}
                   </p>
-                  <p className="mt-1 text-sm text-white">{item.org}</p>
+                  <div className="mt-auto pt-6">
+                    <p className="font-headline text-base font-bold tracking-tight text-orange lg:text-lg">
+                      {`${item.role},`}
+                    </p>
+                    <p className="mt-1 text-sm leading-snug text-white">{item.org}</p>
+                  </div>
                 </div>
               </article>
             </div>
           ))}
         </div>
       </div>
-    
     </section>
   );
 }

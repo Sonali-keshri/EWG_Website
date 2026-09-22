@@ -178,44 +178,47 @@ export function Products() {
       ref={sectionRef}
       id="products"
       className="relative flex h-screen flex-col items-center justify-center overflow-hidden"
-      style={{ background: "var(--ewg-gradient-intro)" }}
     >
-      <div className="relative h-[660px] w-[min(1120px,92vw)] lg:h-[470px]">
-        {cards.map((card, index) => (
-          <article
-            key={card.name}
-            ref={(node) => {
-              cardRefs.current[index] = node;
-            }}
-            className="ewg-stack-card absolute top-0 right-0 left-0 grid h-full grid-rows-[auto_1fr] gap-6 overflow-hidden rounded-[1.75rem] bg-white p-6 text-navy shadow-[0_30px_60px_-20px_rgba(14,55,73,0.28)] lg:grid-cols-[1.1fr_1fr] lg:grid-rows-1 lg:gap-10 lg:p-12"
-          >
-            <div className="flex min-w-0 flex-col justify-center">
-              <p className="ewg-eyebrow !text-orange">{products.eyebrow}</p>
-              <h3 className="mt-3.5 font-headline text-[1.5rem] leading-[1.16] font-semibold text-lime-dark lg:text-[2rem]">
-                {card.name} — {card.tagline}
-              </h3>
-              <p className="mt-4 max-w-[46ch] text-[0.92rem] leading-[1.6] text-navy/70 lg:text-[0.97rem]">
-                {card.body}
-              </p>
-              <p className="mt-5 text-[0.95rem] font-semibold italic text-navy">
-                {card.metrics.join(" · ")}
-              </p>
-              <Button href={products.cardCta.href} variant="light" className="mt-7 self-start">
-                {products.cardCta.label}
-              </Button>
-            </div>
-            <div className="relative min-h-[9rem] min-w-0 overflow-hidden rounded-[1.25rem] bg-navy/10">
-              <Image
-                src={card.image}
-                alt={card.imageAlt}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 520px, 92vw"
-                priority={index === 0}
-              />
-            </div>
-          </article>
-        ))}
+      {/* Frame carries the navbar-width padding; the cards are absolute, so they
+          fill its content box instead of being inset by it. */}
+      <div className="ewg-card-frame">
+        <div className="relative h-[660px] w-full lg:h-[470px]">
+          {cards.map((card, index) => (
+            <article
+              key={card.name}
+              ref={(node) => {
+                cardRefs.current[index] = node;
+              }}
+              className="ewg-stack-card ewg-card-inset absolute top-0 right-0 left-0 grid h-full grid-rows-[auto_1fr] gap-6 overflow-hidden rounded-[1.75rem] bg-white py-6 text-navy shadow-[0_30px_60px_-20px_rgba(14,55,73,0.28)] lg:grid-cols-[1.1fr_1fr] lg:grid-rows-1 lg:gap-10 lg:py-12"
+            >
+              <div className="flex min-w-0 flex-col justify-center">
+                <p className="ewg-eyebrow !text-orange">{products.eyebrow}</p>
+                <h3 className="mt-3.5 font-headline text-[1.5rem] leading-[1.16] font-semibold ewg-gradient-text-dark lg:text-[2rem]">
+                  {card.name} — {card.tagline}
+                </h3>
+                <p className="mt-4 max-w-[46ch] text-[0.92rem] leading-[1.6] text-navy/70 lg:text-[0.97rem]">
+                  {card.body}
+                </p>
+                <p className="mt-5 text-[0.95rem] font-semibold italic text-navy">
+                  {card.metrics.join(" · ")}
+                </p>
+                <Button href={products.cardCta.href} variant="light" className="mt-7 self-start">
+                  {products.cardCta.label}
+                </Button>
+              </div>
+              <div className="relative min-h-[9rem] min-w-0 overflow-hidden rounded-[1.25rem] bg-navy/10">
+                <Image
+                  src={card.image}
+                  alt={card.imageAlt}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 520px, 92vw"
+                  priority={index === 0}
+                />
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
 
       <div className="relative z-[200] mt-[26px] flex items-center gap-2">
@@ -230,14 +233,14 @@ export function Products() {
             }}
             className={cn(
               "h-2 rounded-full transition-all duration-300",
-              index === activeIndex ? "w-[22px] bg-orange" : "w-2 bg-navy/20 hover:bg-navy/40",
+              index === activeIndex ? "w-[22px] bg-orange" : "w-2 bg-white/25 hover:bg-white/45",
             )}
           />
         ))}
       </div>
 
       <div
-        className="pointer-events-none absolute bottom-7 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1.5 text-[12px] tracking-[0.05em] text-navy/60 transition-opacity duration-300"
+        className="pointer-events-none absolute bottom-7 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1.5 text-[12px] tracking-[0.05em] text-white/70 transition-opacity duration-300"
         style={{ opacity: hintVisible ? 0.8 : 0 }}
         aria-hidden="true"
       >
