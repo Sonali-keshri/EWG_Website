@@ -26,7 +26,7 @@ export function Testimonials() {
             <p className="ewg-eyebrow text-orange">{testimonials.eyebrow}</p>
             <h2
               id="testimonials-heading"
-              className="mt-5 font-headline text-[2.1rem] leading-[1.08] font-[500] tracking-tight sm:text-[2.6rem] lg:text-[3.5rem]"
+              className="mt-5 font-headline text-[2.1rem] leading-[1.08] font-[500] tracking-normal sm:text-[2.6rem] lg:text-[3.5rem]"
             >
               <span className="ewg-heading-light">{testimonials.headerLine1}</span>
               <br />
@@ -61,7 +61,7 @@ export function Testimonials() {
               style={{ paddingLeft: "var(--ewg-slide-gap)" }}
             >
               <article
-                className="flex aspect-[784/458] w-full flex-col rounded-[50px] px-8 py-7 sm:px-10 sm:py-8 lg:px-12 lg:py-10"
+                className="flex w-full flex-col rounded-[50px] px-8 py-7 sm:px-10 sm:py-8 lg:px-12 lg:py-10"
                 style={{ backgroundImage: "var(--ewg-gradient-card-dark)" }}
               >
                 <Image
@@ -75,8 +75,8 @@ export function Testimonials() {
                   <p className="max-w-[34rem] text-[0.95rem] leading-[1.55] text-white lg:text-base">
                     {item.quote}
                   </p>
-                  <div className="mt-auto pt-6">
-                    <p className="font-headline text-base font-bold tracking-tight text-orange lg:text-lg">
+                  <div className="mt-auto pt-12">
+                    <p className="font-headline text-base font-medium tracking-normal text-orange lg:text-lg">
                       {`${item.role},`}
                     </p>
                     <p className="mt-1 text-sm leading-snug text-white">{item.org}</p>

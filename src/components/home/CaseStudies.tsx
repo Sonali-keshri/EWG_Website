@@ -5,7 +5,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { useRef } from "react";
 import type { PointerEvent, MouseEvent } from "react";
-import { ArrowCursor } from "@/components/ui/ArrowCursor";
+import { DarkArrowCursor } from "@/components/ui/ArrowCursor";
 import { Button } from "@/components/ui/Button";
 import { caseStudies } from "@/lib/content";
 
@@ -34,14 +34,14 @@ export function CaseStudies() {
       className="text-navy"
       style={{ backgroundImage: "var(--ewg-gradient-case)" }}
     >
-      <ArrowCursor>
+      <DarkArrowCursor>
         <div className="ewg-container pt-20 lg:pt-28">
           <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="ewg-eyebrow text-orange">{caseStudies.eyebrow}</p>
               <h2
                 id="case-studies-heading"
-                className="mt-4 font-headline text-[2.1rem] leading-[1.14] font-semibold tracking-tight sm:text-[2.6rem] lg:text-[3rem]"
+                className="mt-4 font-headline text-[2.1rem] leading-[1.14] font-medium tracking-normal sm:text-[2.6rem] lg:text-[3rem]"
               >
                 <span className="ewg-gradient-text-dark">{caseStudies.headerLead} {caseStudies.headerRest}</span>{" "}
               
@@ -88,17 +88,17 @@ export function CaseStudies() {
                   />
                 </div>
                 <div className="mt-7 max-w-xl pl-8 lg:pl-12">
-                  <h3 className="font-headline text-2xl leading-snug font-bold lg:text-[1.75rem]">
+                  <h3 className="font-headline text-2xl leading-snug font-medium lg:text-[1.75rem]">
                     {item.title}
                   </h3>
                   <p className="mt-4 leading-7 text-navy/70">{item.body}</p>
-                  <p className="mt-5 text-sm font-bold italic">{item.metrics}</p>
+                  <p className="mt-5 font-sans text-sm font-medium italic">{item.metrics}</p>
                 </div>
               </article>
             ))}
           </div>
         </div>
-      </ArrowCursor>
+      </DarkArrowCursor>
     </section>
   );
 }

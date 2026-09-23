@@ -11,7 +11,7 @@ export function Practices({ id = "practices", showBody = true }: PracticesProps)
     <section id={id} className="bg-white text-navy">
       <div className="ewg-container pt-20 lg:pt-28">
         <p className="ewg-eyebrow text-orange">{practices.eyebrow}</p>
-        <h2 className="mt-5 font-headline text-[2.25rem] font-[900px] leading-[1] tracking-tighter sm:text-[3rem] lg:text-[3.8rem]">
+        <h2 className="mt-5 font-headline text-[2.25rem] font-medium leading-[1] tracking-normal sm:text-[3rem] lg:text-[3.8rem]">
           <span className="ewg-heading-ink">{practices.headerLine1}</span>
           <br />
           <span>{practices.headerLine2}</span>

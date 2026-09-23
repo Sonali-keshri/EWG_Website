@@ -4,7 +4,7 @@ import { partnerLogos } from "@/lib/content";
 function StatItem({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex h-14 shrink-0 items-center gap-2.5 px-7">
-      <span className="font-headline text-lg font-bold text-orange">{value}</span>
+      <span className="font-headline text-lg font-medium text-orange">{value}</span>
       <span className="text-sm text-white/75">{label}</span>
     </div>
   );

@@ -19,26 +19,25 @@ export function AboutStory() {
 
   return (
     <section id="our-story" className="bg-white text-navy">
-      <div className="ewg-container grid items-start gap-14 py-20 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-16 lg:py-28">
-        <div className="max-w-xl">
+      <div className="ewg-container grid items-start gap-12 py-16 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-x-10 lg:py-20">
+        <div className="max-w-[38rem]">
           <p className="ewg-eyebrow text-orange">{aboutStory.eyebrow}</p>
-          <h2 className="mt-5 font-headline text-[2.2rem] leading-[1.14] font-bold tracking-tight sm:text-[2.6rem] lg:text-[3.15rem]">
+          <h2 className="mt-4 font-headline text-[2.15rem] leading-[1.08] font-medium tracking-normal sm:text-[2.55rem] lg:text-[2.85rem]">
             <span className="ewg-heading-ink">{aboutStory.headerLine1}</span>
             <br />
             <span>{aboutStory.headerLine2}</span>
           </h2>
-          <p className="mt-6 leading-8 text-navy/75">{aboutStory.body}</p>
-          <p className="mt-6 font-headline text-[1.05rem] leading-8 font-semibold italic">
+          <p className="mt-6 text-[0.95rem] leading-[1.55] text-navy">{aboutStory.body}</p>
+          <p className="mt-5 font-sans text-[0.95rem] leading-[1.45] font-medium italic text-navy">
             {aboutStory.closer}
           </p>
         </div>
 
-        <div className="grid grid-cols-[4rem_minmax(0,1fr)] items-stretch gap-6 lg:gap-8">
-          {/* Spine: two nav circles, lime line that fades to white, three squares. */}
+        <div className="grid min-h-[28rem] grid-cols-[4.5rem_minmax(0,1fr)] items-stretch gap-8 lg:min-h-[32rem] lg:gap-10">
           <div className="relative flex flex-col items-center">
             <div
               aria-hidden="true"
-              className="absolute top-8 bottom-8 left-1/2 w-1.5 -translate-x-1/2 rounded-full"
+              className="absolute top-10 bottom-10 left-1/2 w-1.5 -translate-x-1/2 rounded-full"
               style={{ backgroundImage: "var(--ewg-gradient-timeline)" }}
             />
 
@@ -47,17 +46,17 @@ export function AboutStory() {
               aria-label="Previous milestone"
               disabled={active === 0}
               onClick={() => go(-1)}
-              className="group relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-ink-deep disabled:opacity-40"
+              className="group relative z-10 flex h-[4.25rem] w-[4.25rem] shrink-0 items-center justify-center rounded-full bg-ink-deep disabled:opacity-40"
             >
               <BrandArrow size={22} tone="orange" animate className="-rotate-90" />
             </button>
 
-            <div className="relative z-10 flex flex-1 flex-col items-center justify-evenly py-5">
+            <div className="relative z-10 flex flex-1 flex-col items-center justify-evenly py-3">
               {Array.from({ length: TRACK_NODES }, (_, index) => (
                 <span
                   key={index}
                   className={cn(
-                    "block h-[1.15rem] w-[1.15rem] rounded-[0.4rem] transition-colors duration-300",
+                    "block h-4 w-4 rounded-[0.28rem] transition-colors duration-300",
                     index === activeNode ? "bg-navy" : "bg-frost",
                   )}
                 />
@@ -69,44 +68,57 @@ export function AboutStory() {
               aria-label="Next milestone"
               disabled={active === items.length - 1}
               onClick={() => go(1)}
-              className="group relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-ink-deep disabled:opacity-40"
+              className="group relative z-10 flex h-[4.25rem] w-[4.25rem] shrink-0 items-center justify-center rounded-full bg-ink-deep disabled:opacity-40"
             >
               <BrandArrow size={22} tone="orange" animate className="rotate-90" />
             </button>
           </div>
 
-          <div className="flex flex-col justify-between py-20">
+          <div className="flex flex-col justify-between py-1">
             {items.map((item, index) => {
               const isActive = index === active;
+              const isEdge = index === 0 || index === items.length - 1;
               return (
                 <button
                   key={item.year}
                   type="button"
                   onClick={() => setActive(index)}
-                  className="grid gap-2 py-2 text-left sm:grid-cols-[9.75rem_minmax(0,1fr)] sm:items-center sm:gap-6"
+                  className="grid gap-1 py-1 text-left sm:grid-cols-[10.5rem_minmax(0,1fr)] sm:items-start sm:gap-8"
                 >
-                  <span
-                    className={cn(
-                      "transition-opacity duration-300",
-                      isActive ? "opacity-100" : "opacity-30",
-                    )}
-                  >
+                  <span>
                     <span
                       className={cn(
-                        "block font-headline text-lg font-bold",
-                        isActive ? "text-orange" : "text-navy",
+                        "block font-headline text-[1.05rem] leading-none transition-colors duration-300",
+                        isActive
+                          ? "font-medium text-orange"
+                          : isEdge
+                            ? "font-medium text-orange/20"
+                            : "font-medium text-orange/45",
                       )}
                     >
                       {item.year}
                     </span>
-                    <span className="block font-headline text-lg font-bold leading-tight">
+                    <span
+                      className={cn(
+                        "mt-1 block font-headline text-[1.05rem] leading-tight transition-colors duration-300",
+                        isActive
+                          ? "font-medium text-navy"
+                          : isEdge
+                            ? "font-medium text-navy/15"
+                            : "font-medium text-navy/40",
+                      )}
+                    >
                       {item.title}
                     </span>
                   </span>
                   <span
                     className={cn(
-                      "text-sm leading-6 transition-opacity duration-300",
-                      isActive ? "font-semibold text-navy opacity-100" : "text-navy/80 opacity-30",
+                      "text-[0.92rem] leading-[1.45] transition-colors duration-300",
+                      isActive
+                        ? "font-medium text-navy"
+                        : isEdge
+                          ? "text-navy/15"
+                          : "text-navy/40",
                     )}
                   >
                     {item.body}

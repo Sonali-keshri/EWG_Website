@@ -7,7 +7,7 @@ export function PracticesHero() {
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16">
           <div>
             <p className="ewg-eyebrow text-orange">{practicesPage.eyebrow}</p>
-            <h1 className="mt-5 font-headline text-[2.4rem] leading-[1.12] font-bold tracking-tight sm:text-5xl lg:text-[3.5rem]">
+            <h1 className="ewg-heading mt-5">
               <span className="ewg-heading-light">{practicesPage.headerLine1}</span>
               <br />
               <span>{practicesPage.headerLine2}</span>

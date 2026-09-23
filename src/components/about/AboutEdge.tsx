@@ -6,7 +6,7 @@ export function AboutEdge() {
     <section id="our-edge" className="bg-white text-navy">
       <div className="ewg-container py-20 lg:py-28">
         <p className="ewg-eyebrow text-orange">{aboutEdge.eyebrow}</p>
-        <h2 className="mt-5 max-w-xl font-headline text-[2.2rem] leading-[1.14] font-bold tracking-tight sm:text-[2.6rem] lg:text-[3.15rem]">
+        <h2 className="ewg-heading mt-5 max-w-xl">
           <span className="ewg-heading-ink">{aboutEdge.headerLine1}</span>
           <br />
           <span>{aboutEdge.headerLine2}</span>

@@ -17,7 +17,7 @@ export function PracticeList() {
           <div
             key={card.name}
             className={cn(
-              "overflow-hidden rounded-[1.75rem] shadow-[0_10px_18px_-12px_rgba(14,55,73,0.55)] transition-colors duration-500",
+              "group overflow-hidden rounded-[1.75rem] shadow-[0_10px_18px_-12px_rgba(14,55,73,0.55)] transition-colors duration-500",
               isActive ? "bg-navy" : "bg-white ring-1 ring-navy/10 hover:ring-navy/25",
             )}
             onMouseEnter={() => setActive(index)}
@@ -36,12 +36,12 @@ export function PracticeList() {
                   onClick={() => setActive(index)}
                   className="ewg-card-inset flex w-full items-center justify-between gap-6 py-5 text-left lg:py-6"
                 >
-                  <h3 className="font-headline text-[1.35rem] leading-none font-bold tracking-tight lg:text-[1.65rem]">
+                  <h3 className="font-headline text-[1.35rem] leading-none font-medium tracking-normal group-hover:font-bold lg:text-[1.65rem] group-hover:text-[2rem]">
                     {card.name}
                   </h3>
                   <span
                     aria-hidden="true"
-                    className="ewg-gradient-text font-headline text-[2.75rem] leading-none font-black tracking-tighter lg:text-[4rem]"
+                    className="ewg-gradient-text font-headline text-[2.75rem] leading-none font-medium tracking-normal lg:text-[4rem]"
                   >
                     {index + 1}
                   </span>
@@ -57,16 +57,22 @@ export function PracticeList() {
             >
               <div className="overflow-hidden">
                 <div className="ewg-card-inset grid items-center gap-8 py-8 sm:grid-cols-[minmax(0,1.15fr)_minmax(16rem,22rem)] lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,24rem)_auto] lg:gap-x-14 lg:py-11">
-                  <h3 className="ewg-gradient-text font-headline text-[1.85rem] leading-[0.95] font-black tracking-tight uppercase sm:text-[2.15rem] lg:text-[2.55rem]">
+                  <h3 className="ewg-gradient-text font-headline text-[1.85rem] leading-[0.95] font-bold tracking-normal uppercase sm:text-[2.15rem] lg:text-[2.55rem]">
                     {card.name}
                   </h3>
                   <div className="max-w-[46ch]">
-                    <p className="font-headline text-[1.05rem] leading-snug font-bold text-white">
+                    <p className="font-headline text-[1.05rem] leading-snug font-medium text-white">
                       {card.tagline}
                     </p>
                     <p className="mt-3 text-[0.95rem] leading-6 text-white/80">{card.body}</p>
                   </div>
-                  <BrandArrow size={80} tone="ice" animate className="hidden justify-self-end lg:block" />
+                  <BrandArrow
+                    size={96}
+                    tone="ice"
+                    mark="big"
+                    animate
+                    className="hidden justify-self-end lg:block"
+                  />
                 </div>
               </div>
             </div>

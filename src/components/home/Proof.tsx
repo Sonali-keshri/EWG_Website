@@ -18,7 +18,7 @@ export function Proof() {
               key={metric.label}
               className="rounded-3xl bg-navy px-7 py-6 text-white"
             >
-              <p className="font-headline text-3xl font-semibold text-orange">
+              <p className="font-headline text-3xl font-medium text-orange">
                 {metric.value}
               </p>
               <p className="mt-1 text-sm text-white/70">{metric.label}</p>

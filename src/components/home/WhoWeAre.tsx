@@ -7,7 +7,7 @@ export function WhoWeAre() {
       <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
           <p className="ewg-eyebrow ewg-eyebrow-loose">{whoWeAre.eyebrow}</p>
-          <h2 className="mt-5 font-headline text-[2.25rem] font-[900px] leading-[1] tracking-tighter sm:text-[3rem] lg:text-[3.2rem]">
+          <h2 className="mt-5 font-headline text-[2.25rem] font-[500] leading-[1] tracking-normal sm:text-[3rem] lg:text-[3.2rem]">
             <span className="ewg-gradient-text">{whoWeAre.headerLine1}</span>
 
             <br />

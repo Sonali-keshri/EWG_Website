@@ -29,7 +29,7 @@ export function EdgeCard({ title, body, iconSrc, iconAlt = "", icon, className }
           />
         ) : null)}
       <div>
-        <h3 className="font-headline text-[1.15rem] leading-tight font-bold text-orange">{title}</h3>
+        <h3 className="ewg-heading-card text-orange">{title}</h3>
         <p className="mt-2 font-sans text-[0.9rem] leading-6 text-navy/80">{body}</p>
       </div>
     </article>

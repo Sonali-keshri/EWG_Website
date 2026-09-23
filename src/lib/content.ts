@@ -1,6 +1,6 @@
 export const navItems = [
   { label: "Practices", href: "/practices" },
-  { label: "Industries", href: "/#industries" },
+  { label: "Industries", href: "/industries" },
   { label: "Blogs", href: "/blogs" },
   { label: "Careers", href: "/careers" },
 ] as const;
@@ -214,27 +214,27 @@ export const oracleStack = {
     {
       title: "Oracle Utilities",
       body: "CC&B · C2M · MDM · OFS · WAM · MWM",
-      icon: "utilities",
+      iconSrc: "/utilities.png",
     },
     {
       title: "Oracle ERP",
       body: "Fusion Financials · SCM · HCM · PPM · ORMB",
-      icon: "erp",
+      iconSrc: "/erp.png",
     },
     {
       title: "Integration & Cloud",
       body: "OIC · OCI · APEX · ODA",
-      icon: "cloud",
+      iconSrc: "/integration.png",
     },
     {
       title: "Data & AI",
       body: "ML forecasting · Agentic Systems · EWG Verity · Catalyst",
-      icon: "data",
+      iconSrc: "/AI.png",
     },
     {
       title: "Beyond",
       body: "SAP · AWS",
-      icon: "beyond",
+      iconSrc: "/beyond.png",
     },
   ] as const,
 };
@@ -318,7 +318,76 @@ export const industries = {
       image: "/images/carousalImg1.png",
     },
   ],
-  cta: { label: "Explore industries", href: "/#industries" },
+  cta: { label: "Explore industries", href: "/industries" },
+};
+
+export const industriesPage = {
+  eyebrow: "Utilities",
+  headerLine1: "Essential systems,",
+  headerLine2: "Four practices.",
+  body: "EWG brings its engineering expertise together across four practices, each built around a specific set of technologies and transformation needs. Choose the practice that fits your challenge, and bring in the wider EWG team when the work calls for it.",
+  ctaLabel: "Explore the industry",
+  slides: [
+    {
+      eyebrow: "Utilities",
+      title: "Essential systems, end to end.",
+      body: "Oracle Utilities across meter-to-cash, AMI, customer systems and core operations, with experience across implementations, migrations and modernization.",
+      href: "/industries",
+      image: "/images/carousalImg1.png",
+    },
+    {
+      eyebrow: "Finance",
+      title: "Technology for the business of money.",
+      body: "Oracle Fusion, Oracle financials and core operations on connected, dependable platforms.",
+      href: "/industries",
+      image: "/images/carousalImg1.png",
+    },
+    {
+      eyebrow: "Healthcare",
+      title: "Platforms patients and citizens rely on.",
+      body: "Secure, compliant systems for healthcare and the public sector, built to run without interruption.",
+      href: "/industries",
+      image: "/images/carousalImg1.png",
+    },
+    {
+      eyebrow: "Manufacturing",
+      title: "Connected operations, end to end.",
+      body: "Finance, supply chain and field systems on one dependable estate, with the same engineering standard.",
+      href: "/industries",
+      image: "/images/carousalImg1.png",
+    },
+  ],
+};
+
+export const blogsPage = {
+  eyebrow: "Utilities",
+  headerLine1: "Essential systems,",
+  headerLine2: "Four practices.",
+  body: "EWG brings its engineering expertise together across four practices, each built around a specific set of technologies and transformation needs. Choose the practice that fits your challenge, and bring in the wider EWG team when the work calls for it.",
+  ctaLabel: "View Full Blog",
+  posts: [
+    {
+      eyebrow: "Utilities",
+      title: "Essential systems, end to end.",
+      body: "Oracle Utilities across meter-to-cash, AMI, customer systems and core operations, with experience across implementations, migrations and modernization.",
+      href: "/blogs",
+      image: "/images/carousalImg1.png",
+    },
+    {
+      eyebrow: "Utilities",
+      title: "Essential systems, end to end.",
+      body: "Oracle Utilities across meter-to-cash, AMI, customer systems and core operations, with experience across implementations, migrations and modernization.",
+      href: "/blogs",
+      image: "/images/carousalImg1.png",
+    },
+    {
+      eyebrow: "Finance",
+      title: "Technology for the business of money.",
+      body: "Oracle Fusion, Oracle financials and core operations on connected, dependable platforms.",
+      href: "/blogs",
+      image: "/images/carousalImg1.png",
+    },
+  ],
 };
 
 export const caseStudies = {
@@ -399,10 +468,10 @@ export const footer = {
     {
       title: "Industries",
       links: [
-        { label: "Electricity, Water & Gas", href: "/#industries" },
-        { label: "Financial Services", href: "/#industries" },
-        { label: "Healthcare & Public Sector", href: "/#industries" },
-        { label: "Manufacturing & Services", href: "/#industries" },
+        { label: "Electricity, Water & Gas", href: "/industries" },
+        { label: "Financial Services", href: "/industries" },
+        { label: "Healthcare & Public Sector", href: "/industries" },
+        { label: "Manufacturing & Services", href: "/industries" },
       ],
     },
     {

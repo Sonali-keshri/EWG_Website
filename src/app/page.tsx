@@ -18,11 +18,11 @@ export default function Home() {
           wash from the top-left to the bottom-right, fading to white. */}
       <div style={{ background: "var(--ewg-gradient-story)" }}>
      
-        <section className="pb-8 ">
+      
           <div className="ewg-container pt-10 lg:pt-14">
             <WhoWeAre />
           </div>
-        </section>
+     
         <Products />
       </div>
       <Practices />

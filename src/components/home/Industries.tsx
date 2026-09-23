@@ -14,12 +14,12 @@ export function Industries() {
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <p className="ewg-eyebrow text-orange">{industries.eyebrow}</p>
-            <h2 className="mt-5 font-headline text-[2.25rem] font-[500] leading-[1] tracking-tighter sm:text-[3rem] lg:text-[3.4rem]">
+            <h2 className="mt-5 font-headline text-[2.25rem] font-medium leading-[1] tracking-normal sm:text-[3rem] lg:text-[3.4rem]">
               <span className="ewg-gradient-text">{industries.headerLine1}</span>
               <br />
               <span>{industries.headerLine2}</span>
             </h2>
-            <p className="mt-6 max-w-md leading-7 text-white/75">
+            <p className="mt-6 max-w-md leading-7 text-white">
               {industries.sectors.join(" · ")}
             </p>
           </div>
@@ -50,10 +50,10 @@ export function Industries() {
                       />
                     </div>
                     <div className="px-7 py-6 lg:px-8">
-                      <h3 className="font-headline text-xl font-bold lg:text-[1.35rem]">
+                      <h3 className=" text-xl lg:text-[1.35rem]">
                         {card.name}
                       </h3>
-                      <p className="mt-1.5 text-sm leading-6 text-white/65">{card.description}</p>
+                      <p className="mt-1.5 text-sm leading-6 tracking-normal text-white/65">{card.description}</p>
                     </div>
                   </article>
                 ))}

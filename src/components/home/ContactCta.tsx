@@ -14,7 +14,7 @@ export function ContactCta() {
         {/* Still PNG and GIF share one box so the animation lights and
             darkens the same arrow positions, matching the Figma field. */}
         <div
-          className="pointer-events-none relative mx-auto aspect-[622/608] w-full max-w-[24rem] lg:max-w-[28rem]"
+          className="pointer-events-none relative mx-auto aspect-[622/608] w-full max-w-[26rem] lg:max-w-[32rem]"
           aria-hidden="true"
         >
           <Image
@@ -22,21 +22,21 @@ export function ContactCta() {
             alt=""
             fill
             unoptimized
-            sizes="(min-width: 1024px) 28rem, 24rem"
-            className="ewg-gif-knock-black object-contain opacity-70"
+            sizes="(min-width: 800px) 28rem, 18rem"
+            className="ewg-arrow-on-white object-contain opacity-40"
           />
           <Image
             src="/images/EWG_Arrows.gif"
             alt=""
             fill
             unoptimized
-            sizes="(min-width: 1024px) 28rem, 24rem"
-            className="ewg-gif-knock-black object-contain"
+            sizes="(min-width: 800px) 28rem, 18rem"
+            className="ewg-arrow-on-white object-contain"
           />
         </div>
         <div>
           <p className="ewg-eyebrow text-orange">{contactCta.eyebrow}</p>
-          <h2 className="mt-4 font-headline text-[2.1rem] leading-[1.14] font-bold tracking-tight sm:text-[2.5rem] lg:text-[2.85rem]">
+          <h2 className="mt-4 font-headline text-[2.1rem] leading-[1.14] font-medium tracking-normal sm:text-[2.5rem] lg:text-[2.85rem]">
             <span className="ewg-heading-ink">{contactCta.headerLine1}</span>
             <br />
             <span>{contactCta.headerLine2}</span>

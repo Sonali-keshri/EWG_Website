@@ -19,7 +19,7 @@ export function HowWeDeliver() {
     <section id="how-we-deliver" className="bg-white text-navy">
       <div className="ewg-container pb-20 lg:pb-28">
         <p className="ewg-eyebrow text-orange">{howWeDeliver.eyebrow}</p>
-        <h2 className="mt-5 font-headline text-[2.2rem] leading-[1.14] font-bold tracking-tight sm:text-[2.6rem] lg:text-[3.15rem]">
+        <h2 className="ewg-heading mt-5">
           <span className="ewg-heading-ink">{howWeDeliver.headerLine1}</span>{" "}
           <span>{howWeDeliver.headerLine2}</span>
         </h2>
@@ -67,12 +67,12 @@ export function HowWeDeliver() {
 
         <article className="ewg-edge-card mt-10 flex items-center justify-between gap-8 rounded-[1.75rem] px-8 py-9 lg:mt-12 lg:px-12 lg:py-11">
           <div className="max-w-xl">
-            <h3 className="font-headline text-[1.5rem] font-bold text-orange lg:text-[1.7rem]">{step.title}</h3>
+            <h3 className="ewg-heading-card text-orange">{step.title}</h3>
             <p className="mt-3 max-w-lg font-sans text-[1.02rem] leading-7 text-navy">{step.body}</p>
           </div>
           <span
             aria-hidden="true"
-            className="font-headline text-[3.5rem] leading-none font-black text-navy lg:text-[4.75rem]"
+            className="font-headline text-[3.5rem] leading-none font-medium text-navy lg:text-[4.75rem]"
           >
             {active + 1}
           </span>

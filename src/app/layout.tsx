@@ -23,6 +23,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                       0 1 1 0 0"
             />
           </filter>
+          <filter id="ewg-arrow-ice" colorInterpolationFilters="sRGB">
+            <feColorMatrix
+              type="matrix"
+              values="0 0 0 0 0.702
+                      0 0 0 0 0.894
+                      0 0 0 0 0.922
+                      0 1.35 1.35 0 -0.45"
+            />
+          </filter>
         </svg>
         <SiteHeader />
         <div className="flex flex-1 flex-col">{children}</div>

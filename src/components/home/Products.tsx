@@ -193,13 +193,13 @@ export function Products() {
             >
               <div className="flex min-w-0 flex-col justify-center">
                 <p className="ewg-eyebrow !text-orange">{products.eyebrow}</p>
-                <h3 className="mt-3.5 font-headline text-[1.5rem] leading-[1.16] font-semibold ewg-gradient-text-dark lg:text-[2rem]">
+                <h3 className="mt-3.5 font-headline text-[1.5rem] leading-[1.16] font-medium ewg-gradient-text-dark lg:text-[2rem]">
                   {card.name} — {card.tagline}
                 </h3>
                 <p className="mt-4 max-w-[46ch] text-[0.92rem] leading-[1.6] text-navy/70 lg:text-[0.97rem]">
                   {card.body}
                 </p>
-                <p className="mt-5 text-[0.95rem] font-semibold italic text-navy">
+                <p className="mt-5 font-sans text-[0.95rem] font-medium italic text-navy">
                   {card.metrics.join(" · ")}
                 </p>
                 <Button href={products.cardCta.href} variant="light" className="mt-7 self-start">
@@ -240,7 +240,7 @@ export function Products() {
       </div>
 
       <div
-        className="pointer-events-none absolute bottom-7 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1.5 text-[12px] tracking-[0.05em] text-white/70 transition-opacity duration-300"
+        className="pointer-events-none absolute bottom-7 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1.5 text-[12px] tracking-normal text-white/70 transition-opacity duration-300"
         style={{ opacity: hintVisible ? 0.8 : 0 }}
         aria-hidden="true"
       >

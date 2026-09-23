@@ -1,26 +1,24 @@
 "use client";
 
 import useEmblaCarousel from "embla-carousel-react";
-import { stackIcons } from "@/components/practices/stackIcons";
 import { CarouselButtons } from "@/components/ui/CarouselButtons";
 import { EdgeCard } from "@/components/ui/EdgeCard";
-import { alignToContainer } from "@/lib/carousel";
 import { oracleStack } from "@/lib/content";
 
 export function OracleStack() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
-    align: alignToContainer,
+    align: "start",
     duration: 32,
   });
 
   return (
     <section id="what-we-cover" className="bg-white text-navy">
-      <div className="ewg-container ">
+      <div className="ewg-container">
         <div className="flex items-start justify-between gap-8">
           <div>
             <p className="ewg-eyebrow text-orange">{oracleStack.eyebrow}</p>
-            <h2 className="mt-5 font-headline text-[2.1rem] leading-[1.14] font-bold tracking-tight sm:text-[2.6rem] lg:text-[3.15rem]">
+            <h2 className="mt-5 font-headline text-[2.1rem] leading-[1.14] font-medium tracking-normal sm:text-[2.6rem] lg:text-[3.15rem]">
               <span className="ewg-heading-ink">{oracleStack.headerLine1}</span>
               <br />
               <span>{oracleStack.headerLine2}</span>
@@ -39,14 +37,22 @@ export function OracleStack() {
         </div>
       </div>
 
-      <div className="mt-12 overflow-hidden pb-20 lg:mt-16 lg:pb-28 px-10" ref={emblaRef}>
-        <div className="-ml-5 flex touch-pan-y lg:-ml-6">
+      <div
+        className="mt-12 overflow-hidden pb-20 lg:mt-16 lg:pb-28"
+        style={{
+          marginLeft: "var(--ewg-content-start)",
+          width: "calc(100% - var(--ewg-content-start))",
+        }}
+        ref={emblaRef}
+      >
+        <div className="flex touch-pan-y" style={{ marginLeft: "calc(var(--ewg-slide-gap) * -1)" }}>
           {oracleStack.cards.map((card) => (
             <div
               key={card.title}
-              className="min-w-0 shrink-0 grow-0 basis-[78%] pl-5 sm:basis-[48%] lg:basis-[23%] lg:pl-6"
+              className="min-w-0 shrink-0 grow-0 basis-[78%] sm:basis-[48%] lg:basis-[23%]"
+              style={{ paddingLeft: "var(--ewg-slide-gap)" }}
             >
-              <EdgeCard title={card.title} body={card.body} icon={stackIcons[card.icon]} />
+              <EdgeCard title={card.title} body={card.body} iconSrc={card.iconSrc} iconAlt="" />
             </div>
           ))}
         </div>

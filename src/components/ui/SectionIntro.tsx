@@ -18,7 +18,7 @@ export function SectionIntro({
   return (
     <div className={cn(align === "center" && "mx-auto text-center", className)}>
       <p className="ewg-eyebrow">{eyebrow}</p>
-      <h2 className="mt-4 max-w-3xl font-headline text-3xl font-semibold leading-[1.15] tracking-tight text-inherit md:text-[2.75rem]">
+      <h2 className="ewg-heading mt-4 max-w-3xl text-inherit">
         {header}
       </h2>
       {children ? (
