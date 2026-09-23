@@ -110,7 +110,7 @@ export function SiteFooter() {
           {/* Footer Columns */}
           {footer.columns.map((column) => (
             <div key={column.title}>
-              <p className="ewg-eyebrow text-white/40">
+              <p className="ewg-eyebrow !tracking-normal text-white/40 text-[0.8rem]">
                 {column.title}
               </p>
 

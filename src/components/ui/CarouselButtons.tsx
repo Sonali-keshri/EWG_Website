@@ -35,7 +35,7 @@ export function CarouselButton({
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        "group flex h-24 w-24 shrink-0 items-center justify-center rounded-full transition-colors disabled:opacity-40 lg:h-16 lg:w-16",
+        "group flex h-24 w-24 shrink-0 cursor-pointer items-center justify-center rounded-full transition-colors disabled:cursor-not-allowed disabled:opacity-40 lg:h-16 lg:w-16",
         surfaceClass[surface],
         className,
       )}

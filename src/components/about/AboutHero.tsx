@@ -19,19 +19,21 @@ export function AboutHero() {
           <p className="max-w-md pb-1 text-[1.02rem]  text-white/80">{aboutUs.body}</p>
         </div>
 
-        <div className=" ewg-container mt-10 grid grid-cols-2 rounded-[1.75rem] bg-navy-dark sm:grid-cols-3 lg:mt-16 lg:grid-cols-5">
-          {aboutUs.stats.map((stat) => (
-            <div key={stat.label} className="px-6 py-8 text-left lg:py-10">
-              <CountUp
-                value={stat.value}
-                suffix={stat.suffix}
-                className="font-headline text-[2.6rem] leading-none font-medium text-orange lg:text-[3.25rem]"
-              />
-              <p className="mt-3 max-w-[11rem] text-sm leading-5 whitespace-pre-line text-white/70">
-                {stat.label}
-              </p>
-            </div>
-          ))}
+        <div className="ewg-card-frame mt-10 pb-16 lg:mt-16 lg:pb-20">
+          <div className="grid grid-cols-2 rounded-[1.75rem] bg-navy-dark sm:grid-cols-3 lg:grid-cols-5">
+            {aboutUs.stats.map((stat) => (
+              <div key={stat.label} className="px-6 py-8 text-left lg:py-10">
+                <CountUp
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  className="font-headline text-[2.6rem] leading-none font-medium text-orange lg:text-[3.25rem]"
+                />
+                <p className="mt-3 max-w-[11rem] text-sm leading-5 whitespace-pre-line text-white/70">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BlogsList } from "@/components/blogs/BlogsList";
+import { ContactCta } from "@/components/home/ContactCta";
 
 export const metadata: Metadata = {
   title: "Blogs | EWG",
@@ -11,6 +12,7 @@ export default function BlogsPage() {
   return (
     <main>
       <BlogsList />
+ 
     </main>
   );
 }

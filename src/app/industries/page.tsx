@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ContactCta } from "@/components/home/ContactCta";
 import { IndustriesShowcase } from "@/components/industries/IndustriesShowcase";
 
 export const metadata: Metadata = {

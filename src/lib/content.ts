@@ -11,7 +11,7 @@ export const hero = {
   headerLine2: "Building what's next",
   body: "For more than a decade, EWG has worked where systems, data and operations cannot afford to go wrong. That began in utilities, where we built deep expertise across Oracle Utilities and the meter-to-cash lifecycle. Today, we're taking that same engineering discipline into enterprise transformation, cloud, automation and intelligent systems.",
   primaryCta: { label: "See how we work", href: "/practices" },
-  secondaryCta: { label: "Talk to our team", href: "/#contact" },
+  secondaryCta: { label: "Talk to our team", href: "/contact" },
 };
 
 export const partnerLogos = [
@@ -133,7 +133,7 @@ export const aboutNextPhase = {
   headerLine1: "We're building on",
   headerLine2: "what got us here.",
   body: "More capability. More IP. More ways to turn experience into an advantage for our clients. Because the future is more than technology.",
-  cta: { label: "Talk to EWG", href: "/#contact" },
+  cta: { label: "Talk to EWG", href: "/contact" },
 };
 
 export const products = {
@@ -450,8 +450,26 @@ export const contactCta = {
   headerLine1: "Have a system you",
   headerLine2: "can't afford to get wrong?",
   body: "That's the kind of work we were built for. Talk to us about your Oracle Utilities, ERP, cloud or AI roadmap.",
-  primaryCta: { label: "Contact us", href: "/#contact" },
-  secondaryCta: { label: "Client & employee portal", href: "/#contact" },
+  primaryCta: { label: "Contact us", href: "/contact" },
+  secondaryCta: { label: "Client & employee portal", href: "/contact" },
+};
+
+export const contactPage = {
+  eyebrow: "Let's start a conversation",
+  headerLine1: "Great ideas begin with",
+  headerLine2: "a simple conversation.",
+  body: "Have a project in mind, exploring a new idea, or simply want to know more? Get in touch with us to discuss your project's potential, and the right way forward. We're here to listen, understand, and turn ideas into meaningful outcomes.",
+  fields: [
+    { name: "brandName", label: "BrandName", type: "text", autoComplete: "organization" },
+    { name: "email", label: "Email ID", type: "email", autoComplete: "email" },
+    { name: "mobile", label: "Mobile Number", type: "tel", autoComplete: "tel" },
+    { name: "requirement", label: "Requirement", type: "text", autoComplete: "off" },
+  ] as const,
+  message: { name: "message", label: "Message" },
+  submit: "Talk to EWG",
+  mapSrc:
+    "https://maps.google.com/maps?q=Indiranagar,+Bengaluru&z=14&output=embed",
+  mapTitle: "EWG office map — Indiranagar, Bengaluru",
 };
 
 export const footer = {

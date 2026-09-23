@@ -47,7 +47,7 @@ export function ContactCta() {
             onMouseLeave={() => setActive("primary")}
           >
             <Button
-              href={contactCta.primaryCta.href}
+              href="/contact"
               variant="light"
               active={active === "primary"}
               onMouseEnter={() => setActive("primary")}
@@ -56,7 +56,7 @@ export function ContactCta() {
               {contactCta.primaryCta.label}
             </Button>
             <Button
-              href={contactCta.secondaryCta.href}
+              href="/contact"
               variant="light"
               active={active === "secondary"}
               onMouseEnter={() => setActive("secondary")}

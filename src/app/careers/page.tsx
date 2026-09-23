@@ -11,7 +11,7 @@ export default function CareersPage() {
         Roles and openings will live here. Until then, talk to us about the work
         you want to take on.
       </p>
-      <Button href="/#contact" className="mt-8">
+      <Button href="/contact" className="mt-8">
         Talk to our team
       </Button>
     </section>
