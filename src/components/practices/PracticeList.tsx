@@ -34,14 +34,14 @@ export function PracticeList() {
                   aria-expanded={isActive}
                   onFocus={() => setActive(index)}
                   onClick={() => setActive(index)}
-                  className="ewg-card-inset flex w-full items-center justify-between gap-6 py-5 text-left lg:py-6"
+                  className="ewg-card-inset flex w-full items-center justify-between gap-3 py-4 text-left lg:gap-6 lg:py-6"
                 >
-                  <h3 className="font-headline text-[1.35rem] leading-none font-medium tracking-normal group-hover:font-bold lg:text-[1.65rem] group-hover:text-[2rem]">
+                  <h3 className="font-headline text-[1.15rem] leading-none font-medium tracking-normal group-hover:font-bold sm:text-[1.35rem] lg:text-[1.65rem] lg:group-hover:text-[2rem]">
                     {card.name}
                   </h3>
                   <span
                     aria-hidden="true"
-                    className="ewg-gradient-text font-headline text-[2.75rem] leading-none font-medium tracking-normal lg:text-[4rem]"
+                    className="ewg-gradient-text font-headline text-[2.1rem] leading-none font-medium tracking-normal lg:text-[4rem]"
                   >
                     {index + 1}
                   </span>
@@ -56,8 +56,8 @@ export function PracticeList() {
               )}
             >
               <div className="overflow-hidden">
-                <div className="ewg-card-inset grid items-center gap-8 py-8 sm:grid-cols-[minmax(0,1.15fr)_minmax(16rem,22rem)] lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,24rem)_auto] lg:gap-x-14 lg:py-11">
-                  <h3 className="ewg-gradient-text font-headline text-[1.85rem] leading-[0.95] font-bold tracking-normal uppercase sm:text-[2.15rem] lg:text-[2.55rem]">
+                <div className="ewg-card-inset grid items-center gap-5 py-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,24rem)_auto] lg:gap-x-14 lg:py-11">
+                  <h3 className="ewg-gradient-text font-headline text-[1.45rem] leading-[0.95] font-bold tracking-normal uppercase sm:text-[2.15rem] lg:text-[2.55rem]">
                     {card.name}
                   </h3>
                   <div className="max-w-[46ch]">

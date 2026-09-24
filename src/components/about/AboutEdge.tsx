@@ -12,7 +12,7 @@ export function AboutEdge() {
           <span>{aboutEdge.headerLine2}</span>
         </h2>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-5">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-5">
           {aboutEdge.cards.map((card) => (
             <EdgeCard
               key={card.title}

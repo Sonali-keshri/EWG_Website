@@ -15,16 +15,16 @@ export function WhoWeAre() {
           </h2>
         </div>
         <div className="max-w-xl lg:pt-6">
-          <p className="text-[1rem]  text-white/85 font-[600px] leading-[24px] pb-10 tracking-normal ">
+          <p className="pb-6 text-[1rem] leading-[24px] tracking-normal text-white/85 lg:pb-10">
             {whoWeAre.body[0]}
           </p>
-          <p className="text-[1rem]  text-white/85 font-[600px] leading-[24px] tracking-normal ">
+          <p className="text-[1rem] leading-[24px] tracking-normal text-white/85">
 
             {whoWeAre.body[1]}
             <br />
             {whoWeAre.body[2]}
           </p>
-          <Button href={whoWeAre.cta.href} className="mt-14">
+          <Button href={whoWeAre.cta.href} className="mt-8 lg:mt-14">
             {whoWeAre.cta.label}
           </Button>
         </div>

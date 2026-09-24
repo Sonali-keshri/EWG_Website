@@ -14,7 +14,7 @@ export function EdgeCard({ title, body, iconSrc, iconAlt = "", icon, className }
   return (
     <article
       className={cn(
-        "ewg-edge-card flex aspect-square flex-col justify-between rounded-[1.875rem] p-7 lg:p-8",
+        "ewg-edge-card flex flex-col gap-4 rounded-[1.875rem] p-5 lg:aspect-square lg:justify-between lg:gap-0 lg:p-8",
         className,
       )}
     >
@@ -25,12 +25,12 @@ export function EdgeCard({ title, body, iconSrc, iconAlt = "", icon, className }
             alt={iconAlt}
             width={80}
             height={80}
-            className="h-[4.5rem] w-[4.5rem] object-contain"
+            className="h-12 w-12 object-contain lg:h-[4.5rem] lg:w-[4.5rem]"
           />
         ) : null)}
-      <div>
-        <h3 className="ewg-heading-card text-orange">{title}</h3>
-        <p className="mt-2 font-sans text-[0.9rem] leading-6 text-navy/80">{body}</p>
+      <div className="lg:mt-auto">
+        <h3 className="ewg-heading-card text-orange lg:min-h-[2.7rem]">{title}</h3>
+        <p className="mt-2 font-sans text-[0.9rem] leading-5 text-navy/80 lg:min-h-[4.5rem]">{body}</p>
       </div>
     </article>
   );

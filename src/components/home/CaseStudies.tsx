@@ -35,8 +35,8 @@ export function CaseStudies() {
       style={{ backgroundImage: "var(--ewg-gradient-case)" }}
     >
       <DarkArrowCursor>
-        <div className="ewg-container pt-20 lg:pt-28">
-          <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+        <div className="ewg-container pt-12 lg:pt-28">
+          <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
             <div>
               <p className="ewg-eyebrow text-orange">{caseStudies.eyebrow}</p>
               <h2
@@ -58,7 +58,7 @@ export function CaseStudies() {
             it so the photo, not the padding, sits on that line. */}
         <div
           id="case-studies-carousel"
-          className="mt-12 overflow-hidden pb-20 lg:mt-14 lg:pb-28"
+          className="mt-8 overflow-hidden pb-14 lg:mt-14 lg:pb-28"
           style={{
             marginLeft: "var(--ewg-content-start)",
             width: "calc(100% - var(--ewg-content-start))",
@@ -87,7 +87,7 @@ export function CaseStudies() {
                     className="ewg-zoom-image object-cover"
                   />
                 </div>
-                <div className="mt-7 max-w-xl pl-8 lg:pl-12">
+                <div className="mt-5 max-w-xl pl-1 lg:mt-7 lg:pl-12">
                   <h3 className="font-headline text-2xl leading-snug font-medium lg:text-[1.75rem]">
                     {item.title}
                   </h3>

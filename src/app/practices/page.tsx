@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Practices } from "@/components/home/Practices";
-import { ContactCta } from "@/components/home/ContactCta";
 import { HowWeDeliver } from "@/components/practices/HowWeDeliver";
 import { HowWeEngage } from "@/components/practices/HowWeEngage";
 import { OracleStack } from "@/components/practices/OracleStack";
@@ -20,7 +19,7 @@ export default function PracticesPage() {
       <OracleStack />
       <HowWeEngage />
       <HowWeDeliver />
-      <ContactCta />
+
     </main>
   );
 }

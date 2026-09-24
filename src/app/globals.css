@@ -321,6 +321,22 @@ a[href] {
   cursor: pointer;
 }
 
+@media (width < 64rem) {
+  :root {
+    --ewg-nav-inset: 1rem;
+    --ewg-gutter: 1.25rem;
+    --ewg-slide-gap: 1rem;
+  }
+}
+
+@media (width >= 40rem) and (width < 64rem) {
+  :root {
+    --ewg-nav-inset: 1.5rem;
+    --ewg-gutter: 1.5rem;
+    --ewg-slide-gap: 1.25rem;
+  }
+}
+
 @media (width >= 64rem) {
   :root {
     --ewg-gutter: 3rem;
@@ -445,6 +461,7 @@ a[href] {
   letter-spacing: normal;
   line-height: 1.15;
   font-size: 1.15rem;
+  padding-top: 3image.pngrem;
 }
 
 @utility ewg-heading-ink {

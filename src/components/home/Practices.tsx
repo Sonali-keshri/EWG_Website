@@ -9,7 +9,7 @@ type PracticesProps = {
 export function Practices({ id = "practices", showBody = true }: PracticesProps) {
   return (
     <section id={id} className="bg-white text-navy">
-      <div className="ewg-container pt-20 lg:pt-28">
+      <div className="ewg-container pt-12 lg:pt-28">
         <p className="ewg-eyebrow text-orange">{practices.eyebrow}</p>
         <h2 className="mt-5 font-headline text-[2.25rem] font-medium leading-[1] tracking-normal sm:text-[3rem] lg:text-[3.8rem]">
           <span className="ewg-heading-ink">{practices.headerLine1}</span>
@@ -19,7 +19,7 @@ export function Practices({ id = "practices", showBody = true }: PracticesProps)
       </div>
 
       {/* Cards share the navbar bar's edges. Copy inside sits on the logo line. */}
-      <div className="ewg-card-frame mt-12 pb-20 lg:mt-16 lg:pb-28">
+      <div className="ewg-card-frame mt-8 pb-14 lg:mt-16 lg:pb-28">
         <PracticeList />
       </div>
     </section>

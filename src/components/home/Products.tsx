@@ -177,19 +177,19 @@ export function Products() {
     <section
       ref={sectionRef}
       id="products"
-      className="relative flex h-screen flex-col items-center justify-center overflow-hidden"
+      className="relative flex  flex-col items-center justify-center overflow-hidden py-10 lg:h-screen lg:min-h-0 lg:py-0"
     >
       {/* Frame carries the navbar-width padding; the cards are absolute, so they
           fill its content box instead of being inset by it. */}
       <div className="ewg-card-frame">
-        <div className="relative h-[660px] w-full lg:h-[470px]">
+        <div className="relative h-[min(34rem,78svh)] w-full lg:h-[470px]">
           {cards.map((card, index) => (
             <article
               key={card.name}
               ref={(node) => {
                 cardRefs.current[index] = node;
               }}
-              className="ewg-stack-card ewg-card-inset absolute top-0 right-0 left-0 grid h-full grid-rows-[auto_1fr] gap-6 overflow-hidden rounded-[1.75rem] bg-white py-6 text-navy shadow-[0_30px_60px_-20px_rgba(14,55,73,0.28)] lg:grid-cols-[1.1fr_1fr] lg:grid-rows-1 lg:gap-10 lg:py-12"
+              className="ewg-stack-card ewg-card-inset absolute top-0 right-0 left-0 grid h-full grid-rows-[auto_1fr] gap-4 overflow-hidden rounded-[1.75rem] bg-white py-5 text-navy shadow-[0_30px_60px_-20px_rgba(14,55,73,0.28)] lg:grid-cols-[1.1fr_1fr] lg:grid-rows-1 lg:gap-10 lg:py-12"
             >
               <div className="flex min-w-0 flex-col justify-center">
                 <p className="ewg-eyebrow !text-orange">{products.eyebrow}</p>

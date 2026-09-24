@@ -18,12 +18,12 @@ export function Hero() {
               <br />
               <span className="text-white">{hero.headerLine2}</span>
             </h1>
-            <p className="mt-10 mb-14 font-sans text-[1rem] font-medium leading-[24px] tracking-normal text-white">
+            <p className="mt-6 mb-8 font-sans text-[1rem] font-medium leading-[24px] tracking-normal text-white lg:mt-10 lg:mb-14">
               {hero.body}
             </p>
             <HeroActions />
           </div>
-          <div className="hidden md:block">
+          <div className="mx-auto w-full max-w-[18rem] md:max-w-none">
             <ArrowField />
           </div>
         </div>

@@ -10,11 +10,10 @@ export function ContactCta() {
 
   return (
     <section id="contact" className="overflow-x-clip bg-white text-navy">
-      <div className="ewg-container grid items-center gap-12 py-20 lg:grid-cols-2 lg:gap-16 lg:py-28">
+      <div className="ewg-container flex flex-col-reverse items-center gap-10 py-14 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16 lg:py-28">
         {/* Still PNG and GIF share one box so the animation lights and
             darkens the same arrow positions, matching the Figma field. */}
-        <div
-          className="pointer-events-none relative mx-auto aspect-[622/608] w-full max-w-[26rem] lg:max-w-[32rem]"
+        <div className="pointer-events-none relative mx-auto aspect-[622/608] w-full max-w-[16rem] sm:max-w-[26rem] lg:max-w-[32rem]"
           aria-hidden="true"
         >
           <Image

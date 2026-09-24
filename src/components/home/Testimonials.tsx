@@ -17,11 +17,11 @@ export function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="overflow-x-clip pb-20 text-white lg:pb-28"
+      className="overflow-x-clip pb-14 text-white lg:pb-28"
       style={{ backgroundImage: "var(--ewg-gradient-industries)" }}
     >
-      <div className="ewg-container pt-16 lg:pt-24">
-        <div className="flex items-center justify-between gap-8">
+      <div className="ewg-container pt-12 lg:pt-24">
+        <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
           <div>
             <p className="ewg-eyebrow text-orange">{testimonials.eyebrow}</p>
             <h2
@@ -61,7 +61,7 @@ export function Testimonials() {
               style={{ paddingLeft: "var(--ewg-slide-gap)" }}
             >
               <article
-                className="flex w-full flex-col rounded-[50px] px-8 py-7 sm:px-10 sm:py-8 lg:px-12 lg:py-10"
+                className="flex w-full flex-col rounded-[1.75rem] px-5 py-6 sm:rounded-[50px] sm:px-10 sm:py-8 lg:px-12 lg:py-10"
                 style={{ backgroundImage: "var(--ewg-gradient-card-dark)" }}
               >
                 <Image
@@ -71,11 +71,11 @@ export function Testimonials() {
                   height={64}
                  
                 />
-                <div className="mt-5 flex min-h-0 flex-1 flex-col pl-8 lg:mt-6 lg:pl-12">
+                <div className="mt-4 flex min-h-0 flex-1 flex-col pl-0 lg:mt-6 lg:pl-12">
                   <p className="max-w-[34rem] text-[0.95rem] leading-[1.55] text-white lg:text-base">
                     {item.quote}
                   </p>
-                  <div className="mt-auto pt-12">
+                  <div className="mt-auto pt-8 lg:pt-12">
                     <p className="font-headline text-base font-medium tracking-normal text-orange lg:text-lg">
                       {`${item.role},`}
                     </p>

@@ -79,7 +79,7 @@ export function SiteHeader() {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={cn(
-        "fixed top-0 right-0 left-0 z-300 py-4 px-16 text-white transition-transform duration-500 ease-out",
+        "fixed top-0 right-0 left-0 z-300 px-4 py-3 text-white transition-transform duration-500 ease-out lg:px-16 lg:py-4",
         hidden && !open && !hovered ? "-translate-y-[calc(100%+1.5rem)]" : "translate-y-0",
       )}
     >

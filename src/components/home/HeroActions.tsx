@@ -9,7 +9,7 @@ export function HeroActions() {
 
   return (
     <div
-      className="mt-10 flex flex-wrap items-center gap-10"
+      className="mt-6 flex flex-wrap items-center gap-4 lg:mt-10 lg:gap-10"
       onMouseLeave={() => setActive("primary")}
     >
       <Button

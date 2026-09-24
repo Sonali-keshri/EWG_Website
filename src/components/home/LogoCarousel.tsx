@@ -47,8 +47,8 @@ function MarqueeSequence({ pass }: { pass: string }) {
 
 export function LogoCarousel() {
   return (
-    <div className="ewg-card-frame pt-20 pb-12 lg:pt-28 lg:pb-16">
-      <div className="ewg-card-inset group overflow-hidden rounded-[1.75rem] bg-black/50 py-5 lg:py-12">
+    <div className="ewg-card-frame pt-10 pb-8 lg:pt-28 lg:pb-16">
+      <div className="ewg-card-inset group overflow-hidden rounded-[1.75rem] bg-black/50 py-4 lg:py-12">
         <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
           <div className="ewg-marquee-track flex w-max items-center">
             <MarqueeSequence pass="a" />
