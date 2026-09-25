@@ -35,7 +35,7 @@ export function CarouselButton({
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        "group flex shrink-0 cursor-pointer items-center justify-center rounded-full transition-colors disabled:cursor-not-allowed disabled:opacity-40",
+        "group flex shrink-0 cursor-pointer items-center justify-center overflow-visible rounded-full transition-colors disabled:cursor-not-allowed disabled:opacity-40",
         className ?? "h-9 w-9 lg:h-16 lg:w-16",
         surfaceClass[surface],
       )}
@@ -45,17 +45,7 @@ export function CarouselButton({
         tone={tone}
         animate
         className={cn(
-          "lg:hidden transition-transform duration-300",
-          direction === "prev" && "-rotate-135",
-          direction === "next" && "rotate-45",
-        )}
-      />
-      <BrandArrow
-        size={28}
-        tone={tone}
-        animate
-        className={cn(
-          "hidden lg:inline-block transition-transform duration-300",
+          "origin-center lg:scale-[1.75]",
           direction === "prev" && "-rotate-135",
           direction === "next" && "rotate-45",
         )}
@@ -73,6 +63,7 @@ type CarouselButtonsProps = {
   nextTone?: ArrowTone;
   surface?: Surface;
   className?: string;
+  buttonClassName?: string;
 };
 
 export function CarouselButtons({
@@ -84,11 +75,26 @@ export function CarouselButtons({
   nextTone = "orange",
   surface = "dark",
   className,
+  buttonClassName,
 }: CarouselButtonsProps) {
   return (
-    <div className={cn("flex shrink-0 gap-3 lg:gap-4", className)}>
-      <CarouselButton direction="prev" onClick={onPrev} label={prevLabel} tone={prevTone} surface={surface} />
-      <CarouselButton direction="next" onClick={onNext} label={nextLabel} tone={nextTone} surface={surface} />
+    <div className={cn("flex shrink-0 items-center gap-2.5 lg:gap-4", className)}>
+      <CarouselButton
+        direction="prev"
+        onClick={onPrev}
+        label={prevLabel}
+        tone={prevTone}
+        surface={surface}
+        className={buttonClassName}
+      />
+      <CarouselButton
+        direction="next"
+        onClick={onNext}
+        label={nextLabel}
+        tone={nextTone}
+        surface={surface}
+        className={buttonClassName}
+      />
     </div>
   );
 }

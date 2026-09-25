@@ -22,6 +22,14 @@ export function ContactCta() {
             sizes="(min-width: 800px) 28rem, 18rem"
             className="ewg-arrow-on-white object-contain opacity-40"
           />
+          <Image
+            src="/images/EWG_Arrows.gif"
+            alt=""
+            fill
+            unoptimized
+            sizes="(min-width: 800px) 28rem, 18rem"
+            className="ewg-gif-knock-black object-contain"
+          />
         </div>
         <div className="w-full">
           <p className="ewg-eyebrow text-orange">{contactCta.eyebrow}</p>

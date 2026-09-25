@@ -2,7 +2,7 @@
 
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
-import Image from "next/image";
+import { QuoteMarks } from "@/components/brand/QuoteMarks";
 import { CarouselButtons } from "@/components/ui/CarouselButtons";
 import { testimonials } from "@/lib/content";
 
@@ -21,7 +21,7 @@ export function Testimonials() {
       style={{ backgroundImage: "var(--ewg-gradient-industries)" }}
     >
       <div className="ewg-container pt-12 lg:pt-24">
-        <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
+        <div className="flex flex-col items-start gap-5 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
           <div>
             <p className="ewg-eyebrow text-orange">{testimonials.eyebrow}</p>
             <h2
@@ -35,7 +35,7 @@ export function Testimonials() {
           </div>
           <CarouselButtons
             surface="ink"
-            className="pt-2"
+            buttonClassName="h-9 w-9 lg:h-16 lg:w-16"
             onPrev={() => emblaApi?.scrollPrev()}
             onNext={() => emblaApi?.scrollNext()}
             prevLabel="Previous testimonial"
@@ -46,14 +46,14 @@ export function Testimonials() {
 
       <div
         id="testimonials-carousel"
-        className="mt-12 overflow-hidden lg:mt-14"
+        className="mt-8 overflow-hidden lg:mt-14"
+        ref={emblaRef}
         style={{
           marginLeft: "var(--ewg-content-start)",
           width: "calc(100% - var(--ewg-content-start))",
         }}
-        ref={emblaRef}
       >
-        <div className="flex touch-pan-y" style={{ marginLeft: "calc(var(--ewg-slide-gap) * -1)" }}>
+        <div className="flex items-stretch touch-pan-y" style={{ marginLeft: "calc(var(--ewg-slide-gap) * -1)" }}>
           {slides.map((item, index) => (
             <div
               key={`${item.role}-${index}`}
@@ -61,22 +61,16 @@ export function Testimonials() {
               style={{ paddingLeft: "var(--ewg-slide-gap)" }}
             >
               <article
-                className="flex w-full flex-col rounded-[1.75rem] px-5 py-6 sm:rounded-[50px] sm:px-10 sm:py-8 lg:px-12 lg:py-10"
+                className="flex h-full min-h-[17.5rem] w-full flex-col rounded-[1.5rem] px-5 py-5 sm:rounded-[50px] sm:px-10 sm:py-8 lg:min-h-0 lg:px-12 lg:py-10"
                 style={{ backgroundImage: "var(--ewg-gradient-card-dark)" }}
               >
-                <Image
-                  src="/images/quoteIcon.png"
-                  alt=""
-                  width={60}
-                  height={64}
-                  className="h-8 w-auto lg:h-16"
-                />
-                <div className="mt-4 flex min-h-0 flex-1 flex-col pl-0 lg:mt-6 lg:pl-12">
-                  <p className="max-w-[34rem] text-[0.85rem] leading-[1.5] text-white lg:text-base">
+                <QuoteMarks className="h-10 w-[2.75rem] shrink-0 lg:h-16 lg:w-[3.55rem]" />
+                <div className="mt-3 flex min-h-0 flex-1 flex-col pl-0 lg:mt-6 lg:pl-12">
+                  <p className="max-w-[34rem] text-[0.9rem] leading-[1.5] text-white lg:text-base">
                     {item.quote}
                   </p>
-                  <div className="mt-auto pt-8 lg:pt-12">
-                    <p className="font-headline text-base font-medium tracking-normal text-orange lg:text-lg">
+                  <div className="mt-auto pt-6 lg:pt-12">
+                    <p className="font-headline text-[0.95rem] font-medium tracking-normal text-orange lg:text-lg">
                       {`${item.role},`}
                     </p>
                     <p className="mt-1 text-sm leading-snug text-white">{item.org}</p>

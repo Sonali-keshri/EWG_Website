@@ -18,7 +18,7 @@ export function ContactPage() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
           <div className="max-w-[42rem]">
             <p className="ewg-eyebrow text-orange">{contactPage.eyebrow}</p>
-            <h1 className="mt-4 font-headline text-[2.4rem] leading-[1.09] font-medium tracking-normal sm:text-[3.2rem] lg:text-[3.5rem] lg:leading-[1.12]">
+            <h1 className="mt-4 font-headline text-[2.4rem] leading-[1.09] font-medium tracking-normal sm:text-[3.2rem] lg:text-[3.5rem] lg:leading-[1.12] lg:block hidden">
               <span className="ewg-heading-light">
                 {contactPage.headerLine1Start}
                 <br className="lg:hidden" />

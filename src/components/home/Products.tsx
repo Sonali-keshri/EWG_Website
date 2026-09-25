@@ -197,7 +197,7 @@ export function Products() {
       className="relative max-lg:h-[calc(100svh+((var(--ewg-product-slides)-1)*80svh))] lg:h-screen"
       style={{ ["--ewg-product-slides" as string]: total }}
     >
-      <div className="flex flex-col items-center justify-center overflow-hidden py-6 max-lg:sticky max-lg:top-0 max-lg:h-[100svh] lg:h-full lg:py-0">
+      <div className="flex flex-col items-center justify-center overflow-hidden py-6 max-lg:sticky max-lg:top-0 max-lg:h-[80svh] lg:h-full lg:py-0">
       {/* Frame carries the navbar-width padding; the cards are absolute, so they
           fill its content box instead of being inset by it. */}
       <div className="ewg-card-frame">

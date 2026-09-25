@@ -13,6 +13,14 @@ export function ArrowField() {
         height={608}
         className="relative h-auto w-full object-contain mix-blend-screen"
       />
+      <Image
+        src="/images/EWG_Arrows.gif"
+        alt=""
+        width={622}
+        height={608}
+        unoptimized
+        className="absolute inset-0 h-full w-full object-contain mix-blend-screen"
+      />
     </div>
   );
 }

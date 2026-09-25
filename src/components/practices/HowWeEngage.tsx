@@ -25,7 +25,7 @@ export function HowWeEngage() {
                 fill
                 unoptimized
                 sizes="20vw"
-                className="object-contain object-right mix-blend-screen opacity-25"
+                className="object-contain object-right mix-blend-screen opacity-55"
               />
               <Image
                 src="/images/EWG_Arrows.gif"
@@ -33,7 +33,7 @@ export function HowWeEngage() {
                 fill
                 unoptimized
                 sizes="20vw"
-                className="object-contain object-right mix-blend-screen opacity-10"
+                className="object-contain object-right mix-blend-screen"
               />
             </div>
 
@@ -45,7 +45,7 @@ export function HowWeEngage() {
                   <br />
                   <span className="ewg-gradient-text">{project.headerLine2}</span>
                 </h3>
-                <p className="mt-5 max-w-[18.5rem] font-sans text-[0.95rem] leading-[1.4] font-medium text-white italic">
+                <p className="mt-3 max-w-[18.5rem] font-sans text-[0.95rem] leading-[1.4] font-medium text-white italic lg:mt-5">
                   {project.body}
                 </p>
               </div>
