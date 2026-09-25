@@ -19,7 +19,12 @@ export function ContactPage() {
           <div className="max-w-[42rem]">
             <p className="ewg-eyebrow text-orange">{contactPage.eyebrow}</p>
             <h1 className="mt-4 font-headline text-[2.4rem] leading-[1.09] font-medium tracking-normal sm:text-[3.2rem] lg:text-[3.5rem] lg:leading-[1.12]">
-              <span className="ewg-heading-light">{contactPage.headerLine1}</span>
+              <span className="ewg-heading-light">
+                {contactPage.headerLine1Start}
+                <br className="lg:hidden" />
+                <span className="hidden lg:inline"> </span>
+                {contactPage.headerLine1Join}
+              </span>
               <br />
               <span>{contactPage.headerLine2}</span>
             </h1>

@@ -36,12 +36,12 @@ export function CaseStudies() {
     >
       <DarkArrowCursor>
         <div className="ewg-container pt-12 lg:pt-28">
-          <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
+          <div className="flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <p className="ewg-eyebrow text-orange">{caseStudies.eyebrow}</p>
               <h2
                 id="case-studies-heading"
-                className="mt-4 font-headline text-[2.1rem] leading-[1.14] font-medium tracking-normal sm:text-[2.6rem] lg:text-[3rem]"
+                className="mt-4 font-headline text-[1.75rem] leading-[1.12] font-medium tracking-normal sm:text-[2.2rem] lg:text-[3rem]"
               >
                 <span className="ewg-gradient-text-dark">{caseStudies.headerLead} {caseStudies.headerRest}</span>{" "}
               

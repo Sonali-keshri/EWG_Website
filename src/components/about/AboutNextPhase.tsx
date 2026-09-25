@@ -15,14 +15,14 @@ export function AboutNextPhase() {
             <span>{aboutNextPhase.headerLine2}</span>
           </h2>
           <p className="mt-6 max-w-md leading-5 text-white/75">{aboutNextPhase.body}</p>
-          <Button href={aboutNextPhase.cta.href} className="mt-10">
+          <Button href={aboutNextPhase.cta.href} className="mt-8 lg:mt-10">
             {aboutNextPhase.cta.label}
           </Button>
         </div>
 
        
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <ArrowField />
         </div>
       </div>

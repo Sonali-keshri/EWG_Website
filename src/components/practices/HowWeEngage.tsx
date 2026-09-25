@@ -8,7 +8,7 @@ export function HowWeEngage() {
     <section id="how-we-engage" className="bg-white text-navy">
       <div className="ewg-container pb-20 lg:pb-28">
         <p className="ewg-eyebrow text-orange">{howWeEngage.eyebrow}</p>
-        <h2 className="mt-5 font-headline text-[2.2rem] leading-[1.14] font-medium tracking-normal sm:text-[2.6rem] lg:text-[3.15rem]">
+        <h2 className="mt-4 font-headline text-[1.75rem] leading-[1.12] font-medium tracking-normal sm:text-[2.2rem] lg:mt-5 lg:text-[3.15rem]">
           <span className="ewg-heading-ink">{howWeEngage.headerLine1}</span>{" "}
           <span>{howWeEngage.headerLine2}</span>
         </h2>
@@ -16,7 +16,7 @@ export function HowWeEngage() {
         <div className="mt-12 grid items-start gap-5 lg:mt-16 lg:grid-cols-[minmax(0,1.8fr)_minmax(0,1.05fr)] lg:gap-6">
           <article className="relative isolate overflow-hidden rounded-[2rem] bg-navy text-white">
             <div
-              className="pointer-events-none absolute top-1/2 right-[-14%] z-0 h-[160%] w-[72%] -translate-y-1/2"
+              className="pointer-events-none absolute top-1/2 right-[-14%] z-0 hidden h-[160%] w-[72%] -translate-y-1/2 lg:block"
               aria-hidden="true"
             >
               <Image

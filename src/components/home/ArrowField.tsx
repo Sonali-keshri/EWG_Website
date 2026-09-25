@@ -11,17 +11,6 @@ export function ArrowField() {
         alt=""
         width={622}
         height={608}
-        className="absolute inset-0 h-full w-full object-contain mix-blend-screen"
-      />
-      {/* `unoptimized` is required: the image optimizer flattens animated GIFs
-          to a single still frame. `preload` replaces the deprecated `priority`. */}
-      <Image
-        src="/images/EWG_Arrows.gif"
-        alt=""
-        width={622}
-        height={608}
-        unoptimized
-        preload
         className="relative h-auto w-full object-contain mix-blend-screen"
       />
     </div>

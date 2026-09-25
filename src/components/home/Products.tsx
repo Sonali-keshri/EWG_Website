@@ -47,6 +47,9 @@ export function Products() {
     let touchStartY: number | null = null;
     let lastActive = -1;
     let lastHint: boolean | null = null;
+    const desktopMq = window.matchMedia("(min-width: 1024px)");
+
+    const isDesktop = () => desktopMq.matches;
 
     const render = (progress: number) => {
       cardRefs.current.forEach((card, index) => {
@@ -98,25 +101,35 @@ export function Products() {
     };
     frame = requestAnimationFrame(tick);
 
+    const syncFromPageScroll = () => {
+      if (isDesktop()) return;
+      const max = section.offsetHeight - window.innerHeight;
+      if (max <= 0) {
+        targetRef.current = 0;
+        return;
+      }
+      const t = Math.max(0, Math.min(1, -section.getBoundingClientRect().top / max));
+      targetRef.current = t * (total - 1);
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          sectionActive = entry.intersectionRatio > 0.6;
+          sectionActive = entry.intersectionRatio > 0.45;
         });
       },
-      { threshold: [0, 0.6, 1] },
+      { threshold: [0, 0.45, 0.6, 1] },
     );
     observer.observe(section);
 
     const onWheel = (event: WheelEvent) => {
-      if (!sectionActive) return;
+      if (!isDesktop() || !sectionActive) return;
 
       const atStart = targetRef.current <= 0;
       const atEnd = targetRef.current >= total - 1;
       const goingDown = event.deltaY > 0;
       const goingUp = event.deltaY < 0;
 
-      // Let the page scroll away once the deck is at either end.
       if ((atStart && goingUp) || (atEnd && goingDown)) return;
 
       event.preventDefault();
@@ -127,12 +140,12 @@ export function Products() {
     };
 
     const onTouchStart = (event: TouchEvent) => {
-      if (!sectionActive) return;
+      if (!isDesktop() || !sectionActive) return;
       touchStartY = event.touches[0].clientY;
     };
 
     const onTouchMove = (event: TouchEvent) => {
-      if (!sectionActive || touchStartY === null) return;
+      if (!isDesktop() || !sectionActive || touchStartY === null) return;
 
       const y = event.touches[0].clientY;
       const deltaY = touchStartY - y;
@@ -156,20 +169,24 @@ export function Products() {
       touchStartY = null;
     };
 
+    window.addEventListener("scroll", syncFromPageScroll, { passive: true });
     window.addEventListener("wheel", onWheel, { passive: false });
     window.addEventListener("touchstart", onTouchStart, { passive: true });
     window.addEventListener("touchmove", onTouchMove, { passive: false });
     window.addEventListener("touchend", onTouchEnd);
-
+    desktopMq.addEventListener("change", syncFromPageScroll);
+    syncFromPageScroll();
     render(0);
 
     return () => {
       cancelAnimationFrame(frame);
       observer.disconnect();
+      window.removeEventListener("scroll", syncFromPageScroll);
       window.removeEventListener("wheel", onWheel);
       window.removeEventListener("touchstart", onTouchStart);
       window.removeEventListener("touchmove", onTouchMove);
       window.removeEventListener("touchend", onTouchEnd);
+      desktopMq.removeEventListener("change", syncFromPageScroll);
     };
   }, [total]);
 
@@ -177,8 +194,10 @@ export function Products() {
     <section
       ref={sectionRef}
       id="products"
-      className="relative flex  flex-col items-center justify-center overflow-hidden py-10 lg:h-screen lg:min-h-0 lg:py-0"
+      className="relative max-lg:h-[calc(100svh+((var(--ewg-product-slides)-1)*80svh))] lg:h-screen"
+      style={{ ["--ewg-product-slides" as string]: total }}
     >
+      <div className="flex flex-col items-center justify-center overflow-hidden py-6 max-lg:sticky max-lg:top-0 max-lg:h-[100svh] lg:h-full lg:py-0">
       {/* Frame carries the navbar-width padding; the cards are absolute, so they
           fill its content box instead of being inset by it. */}
       <div className="ewg-card-frame">
@@ -202,7 +221,7 @@ export function Products() {
                 <p className="mt-5 font-sans text-[0.95rem] font-medium italic text-navy">
                   {card.metrics.join(" · ")}
                 </p>
-                <Button href={products.cardCta.href} variant="light" className="mt-7 self-start">
+                <Button href={products.cardCta.href} variant="light" className="mt-8 self-start lg:mt-10">
                   {products.cardCta.label}
                 </Button>
               </div>
@@ -229,7 +248,16 @@ export function Products() {
             aria-label={`Show ${card.name}`}
             aria-current={index === activeIndex}
             onClick={() => {
-              targetRef.current = index;
+              if (window.matchMedia("(min-width: 1024px)").matches) {
+                targetRef.current = index;
+                return;
+              }
+              const section = sectionRef.current;
+              if (!section) return;
+              const max = section.offsetHeight - window.innerHeight;
+              const t = total <= 1 ? 0 : index / (total - 1);
+              const top = window.scrollY + section.getBoundingClientRect().top + t * max;
+              window.scrollTo({ top, behavior: "smooth" });
             }}
             className={cn(
               "h-2 rounded-full transition-all duration-300",
@@ -254,6 +282,7 @@ export function Products() {
             strokeLinejoin="round"
           />
         </svg>
+      </div>
       </div>
     </section>
   );

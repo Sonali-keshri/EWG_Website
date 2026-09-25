@@ -32,7 +32,7 @@ export function Button({
   const isActive = active ?? hovered;
 
   const classNames = cn(
-    "group inline-flex h-10 cursor-pointer items-center justify-center gap-2.5 rounded-full border px-6 font-sans text-[0.95rem] font-medium tracking-normal transition-colors duration-300",
+        "group inline-flex h-10 shrink-0 cursor-pointer items-center justify-center gap-1.5 whitespace-nowrap rounded-full border px-3.5 font-sans text-[0.8rem] font-medium tracking-normal transition-colors duration-300 lg:gap-2.5 lg:px-6 lg:text-[0.95rem]",
     isActive
       ? "border-lime bg-lime text-navy"
       : variant === "light"

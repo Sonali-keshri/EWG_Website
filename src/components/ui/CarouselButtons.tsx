@@ -36,15 +36,29 @@ export function CarouselButton({
       disabled={disabled}
       className={cn(
         "group flex shrink-0 cursor-pointer items-center justify-center rounded-full transition-colors disabled:cursor-not-allowed disabled:opacity-40",
-        className ?? "h-12 w-12 lg:h-16 lg:w-16",
+        className ?? "h-9 w-9 lg:h-16 lg:w-16",
         surfaceClass[surface],
       )}
     >
       <BrandArrow
+        size={16}
+        tone={tone}
+        animate
+        className={cn(
+          "lg:hidden transition-transform duration-300",
+          direction === "prev" && "-rotate-135",
+          direction === "next" && "rotate-45",
+        )}
+      />
+      <BrandArrow
         size={28}
         tone={tone}
         animate
-        className={cn("transition-transform duration-300", direction === "prev" && "-rotate-135",  direction === "next" && "rotate-45")}
+        className={cn(
+          "hidden lg:inline-block transition-transform duration-300",
+          direction === "prev" && "-rotate-135",
+          direction === "next" && "rotate-45",
+        )}
       />
     </button>
   );

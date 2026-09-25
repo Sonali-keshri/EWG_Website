@@ -24,7 +24,7 @@ export function WhoWeAre() {
             <br />
             {whoWeAre.body[2]}
           </p>
-          <Button href={whoWeAre.cta.href} className="mt-8 lg:mt-14">
+          <Button href={whoWeAre.cta.href} className="mt-8 lg:mt-10">
             {whoWeAre.cta.label}
           </Button>
         </div>

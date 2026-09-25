@@ -26,7 +26,7 @@ export function Testimonials() {
             <p className="ewg-eyebrow text-orange">{testimonials.eyebrow}</p>
             <h2
               id="testimonials-heading"
-              className="mt-5 font-headline text-[2.1rem] leading-[1.08] font-[500] tracking-normal sm:text-[2.6rem] lg:text-[3.5rem]"
+              className="mt-4 font-headline text-[1.75rem] leading-[1.12] font-[500] tracking-normal sm:text-[2.2rem] lg:mt-5 lg:text-[3.5rem]"
             >
               <span className="ewg-heading-light">{testimonials.headerLine1}</span>
               <br />
@@ -69,10 +69,10 @@ export function Testimonials() {
                   alt=""
                   width={60}
                   height={64}
-                 
+                  className="h-8 w-auto lg:h-16"
                 />
                 <div className="mt-4 flex min-h-0 flex-1 flex-col pl-0 lg:mt-6 lg:pl-12">
-                  <p className="max-w-[34rem] text-[0.95rem] leading-[1.55] text-white lg:text-base">
+                  <p className="max-w-[34rem] text-[0.85rem] leading-[1.5] text-white lg:text-base">
                     {item.quote}
                   </p>
                   <div className="mt-auto pt-8 lg:pt-12">

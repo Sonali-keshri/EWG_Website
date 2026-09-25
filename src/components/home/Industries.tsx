@@ -36,7 +36,7 @@ export function Industries() {
       style={{ backgroundImage: "var(--ewg-gradient-industries)" }}
     >
       <div className="ewg-container py-10">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between lg:gap-8">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
           <div>
             <p className="ewg-eyebrow text-orange">{industries.eyebrow}</p>
             <h2 className="mt-5 font-headline text-[2.25rem] font-medium leading-[1] tracking-normal sm:text-[3rem] lg:text-[3.4rem]">

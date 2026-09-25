@@ -15,17 +15,17 @@ export function OracleStack() {
   return (
     <section id="what-we-cover" className="bg-white text-navy">
       <div className="ewg-container">
-        <div className="flex items-start justify-between gap-8">
+        <div className="flex items-start justify-between gap-4">
           <div>
             <p className="ewg-eyebrow text-orange">{oracleStack.eyebrow}</p>
-            <h2 className="mt-5 font-headline text-[2.1rem] leading-[1.14] font-medium tracking-normal sm:text-[2.6rem] lg:text-[3.15rem]">
+            <h2 className="mt-4 font-headline text-[1.75rem] leading-[1.12] font-medium tracking-normal sm:text-[2.2rem] lg:mt-5 lg:text-[3.15rem]">
               <span className="ewg-heading-ink">{oracleStack.headerLine1}</span>
               <br />
               <span>{oracleStack.headerLine2}</span>
             </h2>
           </div>
           <CarouselButtons
-            className="pt-6"
+            className="pt-4 lg:pt-6"
             surface="light"
             prevTone="orange"
             nextTone="orange"
@@ -45,14 +45,20 @@ export function OracleStack() {
         }}
         ref={emblaRef}
       >
-        <div className="flex touch-pan-y" style={{ marginLeft: "calc(var(--ewg-slide-gap) * -1)" }}>
+        <div className="flex items-stretch touch-pan-y" style={{ marginLeft: "calc(var(--ewg-slide-gap) * -1)" }}>
           {oracleStack.cards.map((card) => (
             <div
               key={card.title}
-              className="min-w-0 shrink-0 grow-0 basis-[78%] sm:basis-[48%] lg:basis-[23%]"
+              className="flex min-w-0 shrink-0 grow-0 basis-[78%] sm:basis-[48%] lg:basis-[23%]"
               style={{ paddingLeft: "var(--ewg-slide-gap)" }}
             >
-              <EdgeCard title={card.title} body={card.body} iconSrc={card.iconSrc} iconAlt="" />
+              <EdgeCard
+                className="w-full"
+                title={card.title}
+                body={card.body}
+                iconSrc={card.iconSrc}
+                iconAlt=""
+              />
             </div>
           ))}
         </div>

@@ -456,7 +456,8 @@ export const contactCta = {
 
 export const contactPage = {
   eyebrow: "Let's start a conversation",
-  headerLine1: "Great ideas begin with",
+  headerLine1Start: "Great ideas begin",
+  headerLine1Join: "with",
   headerLine2: "a simple conversation.",
   body: "Have a project in mind, exploring a new idea, or simply want to know more? Get in touch with us to discuss your project's potential, and the right way forward. We're here to listen, understand, and turn ideas into meaningful outcomes.",
   fields: [
